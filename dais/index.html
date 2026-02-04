@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DAIS — Noah Achod</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Root-based CSS -->
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="work-page dais-page">
+    <aside class="sidebar">
+        <button class="menu-toggle" aria-label="Toggle menu">
+    ☰
+</button>
+
+        <!-- Homepage -->
+        <h1><a href="/">Noah Achod</a></h1>
+
+        <nav class="nav">
+            <a href="/about/">about</a>
+
+            <div class="work">
+                <span class="work-label">Work</span>
+
+                <div class="work-items">
+                    <a href="/crash-course/">Crash Course</a>
+                    <a href="/dais/" class="active">Canadian Democracy @ Work</a>
+                    <a href="/when-adam-changes/">When Adam Changes</a>
+                    <a href="/sandboxaq/">SandboxAQ</a>
+                    <a href="/further-study/">Further Study</a>
+                    <a href="/thought-cafe/">Thought Café</a>
+                </div>
+            </div>
+        </nav>
+    </aside>
+
+<main>
+  <h2>Canadian Democracy @ Work</h2>
+  <div class="main-content">    
+    <div class="text-block">
+      <p>
+        Created by The DAIS at Toronto Metropolitan University, <em>Canadian Democracy @ Work</em> is a series which delivers civic and digital skills to the Canadian public.
+      </p>
+      <p>
+        I handled animation on several modules, and created unique
+        English and French versions of each module.
+      </p>
+      <p>
+        Watch the modules
+        <a href="https://teamdemocracy.ca/video-series/" target="_blank" rel="noopener noreferrer">
+          here!
+        </a>
+      </p>
+    </div>
+
+<!-- DAIS 2x2 Video Grid -->
+<div class="video-grid video-grid--dais">
+  <div class="video-wrapper">
+    <video class="dais-video" autoplay muted loop playsinline>
+      <source src="/videos/dais_loop_001.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <div class="video-wrapper">
+    <video class="dais-video" autoplay muted loop playsinline>
+      <source src="/videos/dais_loop_002.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <div class="video-wrapper">
+    <video class="dais-video" autoplay muted loop playsinline>
+      <source src="/videos/dais_loop_003.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <div class="video-wrapper">
+    <video class="dais-video" autoplay muted loop playsinline>
+      <source src="/videos/dais_loop_004.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
+
+</main>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.querySelector(".menu-toggle");
+    const sidebar = document.querySelector(".sidebar");
+
+    if (toggle && sidebar) {
+        toggle.addEventListener("click", function () {
+            sidebar.classList.toggle("open");
+        });
+    }
+});
+</script>
+</body>
+</html>
