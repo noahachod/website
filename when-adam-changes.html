@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>When Adam Changes — Noah Achod</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="work-page">
+
+<aside class="sidebar">
+    <button class="menu-toggle" aria-label="Toggle menu">
+    ☰
+</button>
+    <h1><a href="index.html">Noah Achod</a></h1>
+
+    <nav class="nav">
+        <a href="about.html">About</a>
+
+        <div class="work">
+            <span class="work-label">Work</span>
+
+            <div class="work-items">
+                <a href="crash-course.html">Crash Course</a>
+                <a href="dais.html">Canadian Democracy @ Work</a>
+                <a href="when-adam-changes.html" class="active">When Adam Changes</a>
+                <a href="sandboxaq.html">SandboxAQ</a>
+                <a href="further-study.html">Further Study</a>
+                <a href="thought-cafe.html">Thought Café</a>
+            </div>
+        </div>
+    </nav>
+</aside>
+
+<main>
+    <h2>When Adam Changes</h2>
+
+    <!-- TEXT ONLY -->
+    <div class="main-content">
+    <div class="text-block">
+        <p>
+            Compositing and cleanup on Joël Vaudreuil's <em>Adam Change Lentement,</em> produced by Parce Que Films.
+        </p>
+          <p>
+            The film premiered at Annecy International Animation Film Festival, and screened at Ottawa International Animation Festival, Vancouver International Film Festival, and Festival du Nouveau Cinéma.
+
+        </p>
+    </div>
+
+    <!-- MEDIA (outside text-block) -->
+    <div class="video-figure video-figure--large">
+        <div class="video-wrapper">
+            <iframe
+                src="https://player.vimeo.com/video/856764662"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+
+    <div class="image-row">
+        <img src="images/adam.jpg" alt="Film still" class="lightbox-trigger">
+        <img src="images/adam2.jpg" alt="Film still" class="lightbox-trigger">
+    </div>
+</main>
+
+
+<div class="lightbox" id="lightbox">
+    <img id="lightbox-img" alt="">
+</div>
+
+<script src="lightbox.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.querySelector(".menu-toggle");
+    const sidebar = document.querySelector(".sidebar");
+
+    if (toggle && sidebar) {
+        toggle.addEventListener("click", function () {
+            sidebar.classList.toggle("open");
+        });
+    }
+});
+</script>
+</body>
+</html>

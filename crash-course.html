@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crash Course — Noah Achod</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="work-page crash-course-page">
+
+<aside class="sidebar">
+    <button class="menu-toggle" aria-label="Toggle menu">
+    ☰
+</button>
+    <h1><a href="index.html">Noah Achod</a></h1>
+
+    <nav class="nav">
+        <a href="about.html">About</a>
+
+        <div class="work">
+            <span class="work-label">Work</span>
+
+            <div class="work-items">
+                <a href="crash-course.html" class="active">Crash Course</a>
+                <a href="dais.html">Canadian Democracy @ Work</a>
+                <a href="when-adam-changes.html">When Adam Changes</a>
+                <a href="sandboxaq.html">SandboxAQ</a>
+                <a href="further-study.html">Further Study</a>
+                <a href="thought-cafe.html">Thought Café</a>
+            </div>
+        </div>
+    </nav>
+</aside>
+
+<main>
+    <h2>Crash Course</h2>
+
+    <div class="main-content">
+        <div class="text-block">
+            <p>
+                <em>Crash Course</em> is a giant in the world of educational content. I had the opportunity to work as an animator on several series.
+            </p>
+            <p>
+                I worked as a lead animator on <em>Crash Course Religions</em> and <em>Study Hall: Modern World History,</em> animating most of the episodes, handling deliveries, and occasionally annotating scripts.
+            </p>
+        </div>
+
+        <!-- LARGE 2x2 VIDEO GRID -->
+        <div class="video-grid video-grid--large">
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/e8FLcGEXsO0" allowfullscreen></iframe>
+            </div>
+
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/ciGqnGFWqBs" allowfullscreen></iframe>
+            </div>
+
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/JJ7fTJb6RHc" allowfullscreen></iframe>
+            </div>
+
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/WY-77h8FlFo" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <p class="media-caption">
+            A selection of some of my favourite Crash Course episodes I've animated
+        </p>
+    </div>
+</main>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.querySelector(".menu-toggle");
+    const sidebar = document.querySelector(".sidebar");
+
+    if (toggle && sidebar) {
+        toggle.addEventListener("click", function () {
+            sidebar.classList.toggle("open");
+        });
+    }
+});
+</script>
+</body>
+</html>
