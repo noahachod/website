@@ -1,0 +1,861 @@
+/* ==============================
+   Reset
+============================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ==============================
+   Base body styles
+============================== */
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    color: #555;
+    background-color: #fff;
+    line-height: 1.6;
+}
+
+/* ==============================
+   Sidebar
+============================== */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 100vh;
+    padding: 24px;
+    background-color: #f7f7f7;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+.sidebar h1 {
+    font-size: 1.3em;
+    margin-bottom: 20px;
+}
+
+.sidebar h1 a {
+    text-decoration: none;
+    color: #333;
+}
+
+/* ==============================
+   Navigation
+============================== */
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.nav a,
+.work-label {
+    display: inline-block;
+    text-decoration: none;
+    color: #555;
+    cursor: pointer;
+    transition: color 0.25s ease, transform 0.2s ease;
+}
+
+.nav a:hover,
+.work-label:hover {
+    color: #000;
+    transform: scale(1.05);
+}
+
+.nav a.active {
+    color: #000;
+    font-weight: 500;
+}
+
+/* ==============================
+   Work submenu
+============================== */
+.work-items {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-left: 16px;
+    margin-top: 8px;
+    opacity: 0;
+    transform: translateY(-4px);
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.work:hover .work-items,
+.work-page .work-items {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* ==============================
+   Main layout
+============================== */
+main {
+    margin-left: 220px;
+    padding: 40px;
+    max-width: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 60px;
+    width: 100%;
+    max-width: 900px;
+}
+
+.text-block {
+    width: 100%;
+    max-width: 620px;
+    text-align: left;
+    margin: 0 auto;
+}
+
+.text-block a {
+    color: #333;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.text-block a:hover {
+    color: #000;
+}
+
+/* ==============================
+   Typography
+============================== */
+main h2 {
+    font-size: 1.25em;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+main h3 {
+    font-size: 1em;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 12px;
+}
+
+main p {
+    margin-bottom: 16px;
+}
+
+.work-page .text-block {
+    max-width: 540px;
+}
+
+/* ==============================
+   16:9 video wrapper
+============================== */
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    width: 100%;
+    border-radius: 8px;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* ==============================
+   SINGLE VIDEOS
+============================== */
+.video-figure {
+    width: 100%;
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+/* ==============================
+   LARGE 2x2 VIDEO GRID (CC & FS)
+============================== */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    width: 100%;
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+.video-grid .video-wrapper {
+    width: 100%;
+    max-width: none;
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+}
+
+/* ==============================
+   Media captions
+============================== */
+.media-caption--above {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 12px;
+    font-size: 1em;
+    font-weight: 700;
+    color: #333;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.media-caption {
+    width: 100%;
+    max-width: 1400px;
+    margin: 12px auto 0;
+    font-size: 0.85rem;
+    font-weight: normal;
+    color: #888;
+    line-height: 1.4;
+    text-align: left;
+}
+
+/* ==============================
+   Thought Café Shorts Grid (3x2)
+============================== */
+.shorts-grid {
+    width: 100%;
+    max-width: 700px;
+    margin: 32px auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 200px;
+    row-gap: 24px;
+    justify-items: center;
+}
+
+.shorts-section {
+    width: 100%;
+    max-width: 900px;
+    margin: 32px auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.shorts-section .media-caption {
+    margin-top: 12px;
+}
+
+/* ==============================
+   Sandbox Shorts (9:16)
+============================== */
+.shorts-row {
+    width: 100%;
+    max-width: 900px;
+    margin: 32px auto 0;
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+}
+
+.short-wrapper {
+    height: 500px;
+    aspect-ratio: 9 / 16;
+    flex: 0 0 auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.short-wrapper iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* ==============================
+   Images
+============================== */
+.image-row {
+    width: 100%;
+    max-width: 900px;
+    margin: 32px auto 0;
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+}
+
+.image-row img {
+    max-height: 420px;
+    width: auto;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.image-row img:hover {
+    opacity: 0.9;
+}
+
+/* ==============================
+   Lightbox
+============================== */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+    z-index: 2000;
+}
+
+.lightbox.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+}
+
+/* ==============================
+   Lowercase nav rule
+============================== */
+.nav a[href="/about/"],
+.work-label {
+    text-transform: lowercase;
+}
+
+/* ==============================
+   Responsive
+============================== */
+@media (max-width: 700px) {
+    .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+    }
+
+    main {
+        margin-left: 0;
+        padding: 24px;
+    }
+
+    main > * {
+        max-width: 100%;
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .shorts-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .shorts-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==============================
+   Hi animation
+============================== */
+.hi-animate span {
+    display: inline-block;
+    opacity: 0;
+    transform: translate(5px, 15px);
+    animation: hiWave 0.33s cubic-bezier(0, 0, 0.58, 1) forwards;
+}
+
+.hi-animate span:nth-child(1) { animation-delay: 0s; }
+.hi-animate span:nth-child(2) { animation-delay: 0.06s; }
+.hi-animate span:nth-child(3) { animation-delay: 0.12s; }
+
+@keyframes hiWave {
+    0% { opacity: 0; transform: translate(5px, 15px); }
+    70% { opacity: 1; transform: translate(0, -4px); }
+    100% { opacity: 1; transform: translate(0, 0); }
+}
+
+/* Let media sections control their own alignment */
+.video-figure,
+.shorts-section {
+    align-self: stretch;
+}
+
+/* Match shorts spacing for single videos */
+.shorts-section .video-wrapper {
+    margin-top: 12px;
+}
+
+.about-page main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 120px;
+}
+
+/* ==============================
+   LARGE 2x2 VIDEO GRID OVERRIDE (CC & FS)
+============================== */
+.video-grid.video-grid--large {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    width: 100%;
+    max-width: 1200px;       /* middle-ground max width */
+    margin: 40px auto;
+    justify-content: center; /* center grid */
+}
+
+.video-grid.video-grid--large .video-wrapper {
+    padding-bottom: 0 !important; /* remove old 16:9 hack */
+    height: auto !important;
+    width: 100%;
+    max-width: 600px;        /* middle-ground per video */
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+    position: relative;      /* keeps iframe absolutely positioned */
+}
+
+.video-grid.video-grid--large .video-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+/* ==============================
+   DAIS 2x2 VIDEO GRID — properly larger videos
+============================== */
+.video-grid.video-grid--dais {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    width: 100%;
+    max-width: 1500px;  /* increase overall grid width */
+    margin: 40px auto;
+    justify-content: center;
+    align-items: start;
+}
+
+/* ==============================
+   DAIS 2x2 VIDEO GRID — shave 1px visually
+============================== */
+.video-grid.video-grid--dais .video-wrapper video {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    display: block;
+    transform: scale(0.998); /* shrink slightly, about 1px visually */
+    transform-origin: center center; /* keeps it centered */
+}
+/* ==================================================
+   PAGE-SCOPED VIDEO SIZE OVERRIDES
+   Only affect CC, FS, and DAIS
+================================================== */
+
+/* Crash Course */
+.crash-course-page .video-grid {
+    max-width: 1200px;
+}
+
+/* Further Study */
+.further-study-page .video-grid {
+    max-width: 1200px;
+}
+
+/* DAIS */
+.dais-page .video-grid {
+    max-width: 1200px;
+}
+/* ==================================================
+   PAGE-SCOPED WIDER MEDIA CONTAINERS
+   CC, FS, DAIS only
+================================================== */
+
+.crash-course-page .main-content,
+.further-study-page .main-content,
+.dais-page .main-content {
+    max-width: 1200px;
+}
+/* ==============================
+   SANDBOX SLIDES — Large Grid
+============================== */
+
+.sandbox-page .video-grid--sandbox {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    width: 100%;
+    max-width: 1500px;   /* matches DAIS feel */
+    margin: 40px auto;
+    justify-content: center;
+}
+
+.sandbox-page .video-grid--sandbox .video-wrapper {
+    width: 100%;
+    max-width: none;
+    aspect-ratio: 16 / 9;
+}
+
+.sandbox-page .video-grid--sandbox video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+}
+/* ==============================
+   SANDBOX — Slides Layout + Caption Control
+============================== */
+
+/* Let Sandbox break out of main-content width */
+.sandbox-page .main-content {
+    max-width: none;
+}
+
+/* Uncap section width */
+.sandbox-page .shorts-section {
+    max-width: none;
+}
+
+/* Make Slides grid larger */
+.sandbox-page .video-grid--sandbox {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ==============================
+   SANDBOX — Slides Caption Only
+============================== */
+
+/* Align ONLY the Sandbox Slides title */
+.sandbox-page .sandbox-slides .media-caption--above {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Keep Shorts caption tight under Shorts */
+.sandbox-page .shorts-section .media-caption {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* ==============================
+   Mobile Styles
+============================== */
+
+@media (max-width: 768px) {
+
+    /* Layout */
+    body {
+        flex-direction: column;
+    }
+
+    main {
+        margin-left: 0;
+        padding: 24px 20px;
+    }
+
+    /* Sidebar */
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #eee;
+        padding: 16px 20px;
+    }
+
+    .nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .work-items {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 16px;
+    }
+
+    /* Text */
+    .text-block {
+        max-width: 100%;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+        margin-bottom: 24px;
+    }
+
+    /* Video grids → stack */
+    .video-grid,
+    .video-grid--large,
+    .video-grid--sandbox {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    /* Shorts row → stack */
+    .shorts-row {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    /* Media sizing */
+    .video-wrapper,
+    .short-wrapper,
+    .video-figure {
+        width: 100%;
+    }
+
+    iframe,
+    video {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+    }
+
+    /* Captions */
+    .media-caption,
+    .media-caption--above {
+        font-size: 0.8rem;
+        padding: 0 4px;
+    }
+}
+/* ==============================
+   Mobile Hamburger Menu
+============================== */
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #333;
+    padding: 4px 0;
+}
+
+/* Mobile behavior */
+@media (max-width: 768px) {
+
+    .menu-toggle {
+        display: block;
+        margin-bottom: 12px;
+    }
+
+    /* Hide nav by default */
+    .sidebar nav {
+        display: none;
+        width: 100%;
+    }
+
+    /* Show when active */
+    .sidebar.open nav {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    /* Clean spacing */
+    .sidebar {
+        align-items: flex-start;
+    }
+}
+@media (max-width: 768px) {
+
+    .menu-toggle {
+        display: block;
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .sidebar nav {
+        display: none;
+    }
+
+    .sidebar.open nav {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+}
+@media (max-width: 768px) {
+
+    /* Always show Work submenu on mobile */
+    .work-items {
+        opacity: 1;
+        transform: none;
+        pointer-events: auto;
+    }
+
+}
+/* =================================
+   Force All Media to Stack on Mobile
+================================== */
+
+@media (max-width: 768px) {
+
+    /* All video grids → 1 column */
+    .video-grid,
+    .video-grid--large,
+    .video-grid--sandbox,
+    .video-grid--dais {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Sandbox slides */
+    .sandbox-page .video-grid--sandbox {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* DAIS grid */
+    .video-grid--dais {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Adam images → stack */
+    .image-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .image-row img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    object-fit: contain;
+    aspect-ratio: auto;
+}
+
+}
+/* ==============================
+   Work Button Grid (Index)
+============================== */
+
+.work-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+
+    max-width: 900px;
+    margin: 0 auto 3rem; /* removed big top margin */
+    padding: 0 1rem;
+}
+
+.work-btn {
+    display: block;
+    width: 100%;
+}
+
+.work-btn img {
+    width: 100%;
+    height: auto;
+    display: block;
+
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Index: Work buttons header */
+.work-grid-title {
+    margin-top: 4rem;       /* reduced from 6rem */
+    margin-bottom: 1.5rem; /* space before grid */
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+    letter-spacing: 0.02em;
+}
+
+/* Hover effect (desktop) */
+.work-btn:hover img {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Index page: align intro caption with demo reel */
+/* Index: match video container exactly */
+.video-figure + .text-block {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 0px; /* optional: tiny breathing room */
+}
+
+/* Index: stop flex centering from causing floaty spacing */
+.video-figure,
+.video-figure + .text-block {
+    align-self: stretch;
+}
+/* Crash Course + Further Study: tighten caption under video grids */
+.crash-course-page .video-grid,
+.crash-course-page .video-grid--large,
+.further-study-page .video-grid,
+.further-study-page .video-grid--large {
+    margin-bottom: 0px; /* adjust: 0–12px to taste */
+}
+/* ==============================
+   Index: Button Ocean Wave Entrance
+============================== */
+
+.work-btn {
+    opacity: 0;
+    transform: translateY(18px);
+    animation: oceanWave 0.45s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Natural stagger */
+.work-btn:nth-child(1) { animation-delay: 0.06s; }
+.work-btn:nth-child(2) { animation-delay: 0.12s; }
+.work-btn:nth-child(3) { animation-delay: 0.18s; }
+.work-btn:nth-child(4) { animation-delay: 0.24s; }
+.work-btn:nth-child(5) { animation-delay: 0.30s; }
+.work-btn:nth-child(6) { animation-delay: 0.36s; }
+
+@keyframes oceanWave {
+    0% {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translateY(-4px); /* crest */
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* settle */
+    }
+}
+
+
+
+
+

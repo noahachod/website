@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Further Study — Noah Achod</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Root-based CSS -->
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body class="work-page further-study-page">
+
+<aside class="sidebar">
+    <button class="menu-toggle" aria-label="Toggle menu">
+☰
+</button>
+
+    <!-- Homepage -->
+    <h1><a href="/">Noah Achod</a></h1>
+
+    <nav class="nav">
+        <a href="/about/">about</a>
+
+        <div class="work">
+            <span class="work-label">Work</span>
+
+            <div class="work-items">
+                <a href="/crash-course/">Crash Course</a>
+                <a href="/dais/">Canadian Democracy @ Work</a>
+                <a href="/when-adam-changes/">When Adam Changes</a>
+                <a href="/sandboxaq/">SandboxAQ</a>
+                <a href="/further-study/" class="active">Further Study</a>
+                <a href="/thought-cafe/">Thought Café</a>
+            </div>
+        </div>
+    </nav>
+</aside>
+
+<main>
+<h2>Further Study</h2>
+
+<!-- TEXT ONLY -->
+<div class="main-content">
+<div class="text-block">
+    <p>
+        Created by Hemmat Law, <em>Further Study</em> seeks to make the law and concepts surrounding it
+        approachable and easy to understand. I have been involved with
+        the show since its inception.
+    </p>
+
+    <p>
+        As well as handling animation, I worked with both the creative
+        and production teams to develop an animation pipeline, and built
+        presets to increase efficiency and brand compliance across episodes.
+    </p>
+</div>
+
+<!-- MEDIA (outside text-block) -->
+<div class="video-grid">
+    <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/I15wAGqQjQI" allowfullscreen></iframe>
+    </div>
+
+    <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/iwIluq9U77M" allowfullscreen></iframe>
+    </div>
+
+    <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/OJDdjr0VnDw" allowfullscreen></iframe>
+    </div>
+
+    <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/i0fqEKDmDig" allowfullscreen></iframe>
+    </div>
+</div>
+
+<p class="media-caption">
+    A selection of Further Study episodes I animated
+</p>
+</main>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.querySelector(".menu-toggle");
+    const sidebar = document.querySelector(".sidebar");
+
+    if (toggle && sidebar) {
+        toggle.addEventListener("click", function () {
+            sidebar.classList.toggle("open");
+        });
+    }
+});
+</script>
+</body>
+</html>
