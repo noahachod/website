@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About — Noah Achod</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Root-based CSS -->
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body class="about-page">
+
+    <aside class="sidebar">
+        <button class="menu-toggle" aria-label="Toggle menu">
+    ☰
+</button>
+        <h1>
+            <!-- Homepage -->
+            <a href="/">Noah Achod</a>
+        </h1>
+
+        <nav class="nav">
+            <!-- About page -->
+            <a href="/about/" class="active">about</a>
+
+            <div class="work">
+                <span class="work-label">Work</span>
+
+                <div class="work-items">
+                    <a href="/crash-course/">Crash Course</a>
+                    <a href="/dais/">Canadian Democracy @ Work</a>
+                    <a href="/when-adam-changes/">When Adam Changes</a>
+                    <a href="/sandboxaq/">SandboxAQ</a>
+                    <a href="/further-study/">Further Study</a>
+                    <a href="/thought-cafe/">Thought Café</a>
+                    <a href="/personal/">Personal</a>
+                </div>
+            </div>
+        </nav>
+    </aside>
+
+<main>
+    <div class="main-content">
+        <div class="text-block">
+            <p>
+                Noah Achod is a motion designer based in Montréal, Québec.
+                He has worked with Crash Course, SandboxAQ, Hemmat Law,
+                The Dais at Toronto Metropolitan University, Parce Que Films,
+                Thought Café, Howard Hughes Medical Institute, and more.
+            </p>
+
+            <p class="contact-text">
+                email: achodnoah@gmail.com | instagram:
+                <a href="https://instagram.com/nonostyleee/" target="_blank" rel="noopener noreferrer">
+                    @nonostyleee
+                </a>
+            </p>
+        </div>
+    </div>
+</main>
+
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <img id="lightbox-img" alt="">
+    </div>
+
+    <!-- Root-based JS -->
+    <script src="/lightbox.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.querySelector(".menu-toggle");
+    const sidebar = document.querySelector(".sidebar");
+
+    if (toggle && sidebar) {
+        toggle.addEventListener("click", function () {
+            sidebar.classList.toggle("open");
+        });
+    }
+});
+</script>
+</body>
+</html>
