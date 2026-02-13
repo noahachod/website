@@ -1793,4 +1793,55 @@ iframe,
   height: 100%;
   object-fit: cover;
 }
+/* PERSONAL — Mobile Native Video Fix */
+
+@media (max-width: 768px) {
+
+  .personal-page video {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* Disable overlays */
+  .personal-page .video-overlay {
+    display: none !important;
+  }
+
+}
+/* =====================================
+   HIDE NATIVE VIDEO UI (KEEP CUSTOM)
+===================================== */
+
+/* Remove browser controls overlay */
+video::-webkit-media-controls {
+  display: none !important;
+}
+
+video::-webkit-media-controls-panel {
+  display: none !important;
+}
+
+video::-webkit-media-controls-play-button {
+  display: none !important;
+}
+
+video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+}
+
+video::-webkit-media-controls-timeline {
+  display: none !important;
+}
+
+video::-webkit-media-controls-current-time-display,
+video::-webkit-media-controls-time-remaining-display {
+  display: none !important;
+}
+
+/* Firefox */
+video::-moz-media-controls {
+  display: none !important;
+}
 
