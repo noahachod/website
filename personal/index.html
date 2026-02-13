@@ -80,12 +80,11 @@
     <div class="video-crop">
 
         <video
-    muted
-    preload="metadata"
-    playsinline
-    webkit-playsinline
-    disablepictureinpicture
-    controlslist="nodownload nofullscreen noremoteplayback">
+        muted
+        preload="metadata"
+        playsinline
+        webkit-playsinline
+        controls>
 
 
             <source src="/perso_videos/LD_480.mp4" type="video/mp4">
@@ -109,12 +108,11 @@
     <div class="video-crop">
 
         <video
-    muted
-    preload="metadata"
-    playsinline
-    webkit-playsinline
-    disablepictureinpicture
-    controlslist="nodownload nofullscreen noremoteplayback">
+        muted
+        preload="metadata"
+        playsinline
+        webkit-playsinline
+        controls>
 
             <source src="/perso_videos/PU_480.mp4" type="video/mp4">
 
@@ -136,12 +134,11 @@
     <div class="video-crop">
 
         <video
-    muted
-    preload="metadata"
-    playsinline
-    webkit-playsinline
-    disablepictureinpicture
-    controlslist="nodownload nofullscreen noremoteplayback">
+        muted
+        preload="metadata"
+        playsinline
+        webkit-playsinline
+        controls>
 
 
             <source src="/pr_vid/PR_480.mp4" type="video/mp4">
@@ -174,12 +171,11 @@
         <div class="video-crop tattoo-clip" data-index="0">
 
             <video
-    muted
-    preload="metadata"
-    playsinline
-    webkit-playsinline
-    disablepictureinpicture
-    controlslist="nodownload nofullscreen noremoteplayback">
+            muted
+            preload="metadata"
+            playsinline
+            webkit-playsinline
+            controls>
 
 
                 <source src="/perso_videos/Tattoo_01_480_1.mp4">
@@ -194,12 +190,11 @@
         <div class="video-crop tattoo-clip" data-index="1">
 
             <video
-    muted
-    preload="metadata"
-    playsinline
-    webkit-playsinline
-    disablepictureinpicture
-    controlslist="nodownload nofullscreen noremoteplayback">
+             muted
+             preload="metadata"
+             playsinline
+             webkit-playsinline
+             controls>
 
 
                 <source src="/perso_videos/Tattoo_02_480_1.mp4">
@@ -230,12 +225,12 @@
     <div class="video-crop">
 
         <video
-    muted
-    preload="metadata"
-    playsinline
-    webkit-playsinline
-    disablepictureinpicture
-    controlslist="nodownload nofullscreen noremoteplayback">
+        muted
+        preload="metadata"
+        playsinline
+        webkit-playsinline
+        controls>
+
 
 
             <source src="/perso_videos/Apple_Sound_480.mp4">
@@ -258,12 +253,11 @@
     <div class="video-crop">
 
         <video
-    muted
-    preload="metadata"
-    playsinline
-    webkit-playsinline
-    disablepictureinpicture
-    controlslist="nodownload nofullscreen noremoteplayback">
+        muted
+        preload="metadata"
+        playsinline
+        webkit-playsinline
+        controls>
 
 
             <source src="/perso_videos/Mirror_480.mp4">
@@ -322,51 +316,37 @@ function isDesktop() {
 }
 
 
-/* Open Lightbox */
-
 blocks.forEach(block => {
 
-    if (!isDesktop()) return;
+  block.addEventListener("click", () => {
 
-    block.addEventListener("click", () => {
+    // Desktop = lightbox
+    if (isDesktop()) {
 
-        playlist = block.dataset.videos
-            .split(",")
-            .map(v => v.trim());
+      playlist = block.dataset.videos
+        .split(",")
+        .map(v => v.trim());
 
-        index = 0;
+      index = 0;
+      openVideo();
 
-        openVideo();
+    }
 
-    });
+    // Mobile = play inline
+    else {
 
-});
+      const video = block.querySelector("video");
 
+      if (!video) return;
 
-/* Tattoo clips */
+      video.controls = true;
+      video.play();
 
-document.querySelectorAll(".tattoo-clip").forEach(clip => {
+    }
 
-    if (!isDesktop()) return;
-
-    clip.addEventListener("click", e => {
-
-        e.stopPropagation();
-
-        const block = clip.closest(".project-block");
-
-        playlist = block.dataset.videos
-            .split(",")
-            .map(v => v.trim());
-
-        index = Number(clip.dataset.index);
-
-        openVideo();
-
-    });
+  });
 
 });
-
 
 function openVideo() {
 
