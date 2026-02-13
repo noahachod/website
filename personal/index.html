@@ -225,110 +225,122 @@
 
 <script>
 
-const blocks = document.querySelectorAll(".project-block");
+document.addEventListener("DOMContentLoaded", () => {
 
-const lightbox = document.getElementById("videoLightbox");
-const player = document.getElementById("lightboxVideo");
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
-let playlist = [];
-let index = 0;
+    const blocks = document.querySelectorAll(".project-block");
+    const lightbox = document.getElementById("videoLightbox");
+    const player = document.getElementById("lightboxVideo");
 
+    let playlist = [];
+    let index = 0;
 
-/* Open */
-blocks.forEach(block => {
+    /* -----------------------------
+       DESKTOP ONLY: Lightbox Open
+    ----------------------------- */
 
-    // Normal projects
-    if (!block.classList.contains("project-tattoo")) {
+    if (!isMobile) {
 
-        block.addEventListener("click", () => {
+        // Normal projects
+        blocks.forEach(block => {
 
-            playlist = block.dataset.videos
-                .split(",")
-                .map(v => v.trim());
+            if (!block.classList.contains("project-tattoo")) {
 
-            index = 0;
-            openVideo();
+                block.addEventListener("click", () => {
+
+                    playlist = block.dataset.videos
+                        .split(",")
+                        .map(v => v.trim());
+
+                    index = 0;
+                    openVideo();
+                });
+
+            }
+
+        });
+
+        // Tattoo individual clip click
+        document.querySelectorAll(".tattoo-clip").forEach(clip => {
+
+            clip.addEventListener("click", e => {
+
+                e.stopPropagation();
+
+                const block = clip.closest(".project-block");
+
+                playlist = block.dataset.videos
+                    .split(",")
+                    .map(v => v.trim());
+
+                index = parseInt(clip.dataset.index);
+
+                openVideo();
+
+            });
+
         });
 
     }
 
-});
-/* Tattoo individual clip click */
+    /* -----------------------------
+       Functions
+    ----------------------------- */
 
-document.querySelectorAll(".tattoo-clip").forEach(clip => {
+    function openVideo() {
+        player.src = playlist[index];
+        lightbox.classList.add("active");
+        player.play();
+    }
 
-    clip.addEventListener("click", e => {
+    function close() {
+        lightbox.classList.remove("active");
+        player.pause();
+        player.src = "";
+    }
 
-        e.stopPropagation();
-
-        const block = clip.closest(".project-block");
-
-        playlist = block.dataset.videos
-            .split(",")
-            .map(v => v.trim());
-
-        index = parseInt(clip.dataset.index);
-
+    function next() {
+        index = (index + 1) % playlist.length;
         openVideo();
+    }
 
+    function prev() {
+        index = (index - 1 + playlist.length) % playlist.length;
+        openVideo();
+    }
+
+    /* -----------------------------
+       Close behavior (desktop only)
+    ----------------------------- */
+
+    if (!isMobile) {
+
+        lightbox.addEventListener("click", e => {
+            if (e.target === lightbox) close();
+        });
+
+        document.addEventListener("keydown", e => {
+
+            if (!lightbox.classList.contains("active")) return;
+
+            if (e.key === "Escape") close();
+            if (e.key === "ArrowRight") next();
+            if (e.key === "ArrowLeft") prev();
+
+        });
+
+    }
+
+    /* Force reload of stacked tattoo previews */
+    document.querySelectorAll(".project-tattoo video").forEach(video => {
+        video.load();
     });
 
 });
 
-function openVideo() {
-
-    player.src = playlist[index];
-    lightbox.classList.add("active");
-    player.play();
-}
-
-
-/* Close */
-lightbox.addEventListener("click", e => {
-
-    if (e.target === lightbox) close();
-
-});
-
-
-document.addEventListener("keydown", e => {
-
-    if (!lightbox.classList.contains("active")) return;
-
-    if (e.key === "Escape") close();
-    if (e.key === "ArrowRight") next();
-    if (e.key === "ArrowLeft") prev();
-
-});
-
-
-function close() {
-
-    lightbox.classList.remove("active");
-
-    player.pause();
-    player.src = "";
-}
-
-
-function next() {
-
-    index = (index + 1) % playlist.length;
-    openVideo();
-}
-
-
-function prev() {
-
-    index = (index - 1 + playlist.length) % playlist.length;
-    openVideo();
-}
-// Force reload of stacked tattoo previews
-document.querySelectorAll(".project-tattoo video").forEach(video => {
-    video.load();
-});
-
 </script>
+
 
 
 </main>
@@ -351,3 +363,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+
