@@ -1702,14 +1702,9 @@ img {
     }
 
 }
-/* =====================================
-   PERSONAL PAGE — MOBILE VIDEO LOCK
-   (iOS Safe Mode)
-===================================== */
-
+/* PERSONAL PAGE — MOBILE VIDEO LOCK (iOS Safe Mode) */
 @media (max-width: 768px) {
 
-    /* Kill all conflicting sizing */
     .personal-page .video-crop,
     .personal-page .tattoo-stack,
     .personal-page .project-block {
@@ -1719,18 +1714,15 @@ img {
         background: transparent !important;
     }
 
-    /* Force videos to render natively */
+    /* Force videos to render natively (mobile) */
     .personal-page video {
         display: block !important;
         width: 100% !important;
         max-width: 100% !important;
         height: auto !important;
 
-        object-fit: contain !important;
-
         background: #000 !important;
     }
-
 }
 /* ==============================
    GLOBAL — NO VIDEO BORDERS (FINAL)
@@ -1766,8 +1758,39 @@ iframe,
     pointer-events: none;
   }
 }
-/* iOS video fix */
-video {
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
+/* Desktop only GPU fix */
+@media (min-width: 769px) {
+  video {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
 }
+/* PERSONAL PAGE — Desktop video fit */
+@media (min-width: 769px) {
+
+    .personal-page video {
+        object-fit: contain;
+    }
+}
+/* =====================================
+   PERSONAL — MOBILE: SINGLE PLAY UI
+   Kill duplicate overlays
+===================================== */
+
+@media (max-width: 768px) {
+
+  /* Hide custom play overlay on mobile */
+  .personal-page .video-overlay {
+    display: none !important;
+  }
+}
+/* =====================================
+   PERSONAL — Fill Square Thumbnails
+===================================== */
+
+.personal-page .video-crop video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
