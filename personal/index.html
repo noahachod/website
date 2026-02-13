@@ -304,13 +304,15 @@ let index = 0;
 
 blocks.forEach(block => {
 
-  const video = block.querySelector("video");
-  if (!video) return;
+  const videos = block.querySelectorAll("video");
+  if (!videos.length) return;
 
   /* MOBILE → Native playback */
   if (isMobile) {
 
-    video.setAttribute("controls", "true");
+    videos.forEach(v => {
+  v.setAttribute("controls", "true");
+});
 
     // Never open lightbox
     block.onclick = null;
