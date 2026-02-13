@@ -1,307 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Personal — Noah Achod</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>Personal — Noah Achod</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/styles.css">
 </head>
 
 <body class="work-page personal-page">
 
+<!-- ================= Sidebar ================= -->
+
 <aside class="sidebar">
 
-    <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+  <button class="menu-toggle" aria-label="Toggle menu">☰</button>
 
-    <h1><a href="/">Noah Achod</a></h1>
+  <h1><a href="/">Noah Achod</a></h1>
 
-    <nav class="nav">
+  <nav class="nav">
 
-        <a href="/about/">about</a>
+    <a href="/about/">about</a>
 
-        <div class="work">
+    <div class="work">
 
-            <span class="work-label">Work</span>
+      <span class="work-label">Work</span>
 
-            <div class="work-items">
-                <a href="/crash-course/">Crash Course</a>
-                <a href="/dais/">Canadian Democracy @ Work</a>
-                <a href="/when-adam-changes/">When Adam Changes</a>
-                <a href="/sandboxaq/">SandboxAQ</a>
-                <a href="/further-study/">Further Study</a>
-                <a href="/thought-cafe/">Thought Café</a>
-                <a href="/personal/" class="active">Personal</a>
-            </div>
+      <div class="work-items">
+        <a href="/crash-course/">Crash Course</a>
+        <a href="/dais/">Canadian Democracy @ Work</a>
+        <a href="/when-adam-changes/">When Adam Changes</a>
+        <a href="/sandboxaq/">SandboxAQ</a>
+        <a href="/further-study/">Further Study</a>
+        <a href="/thought-cafe/">Thought Café</a>
+        <a href="/personal/" class="active">Personal</a>
+      </div>
 
-        </div>
+    </div>
 
-    </nav>
+  </nav>
 
 </aside>
 
+<!-- ================= Main ================= -->
 
 <main>
-
 
 <!-- Intro -->
 
 <div class="main-content">
 
-    <div class="text-block">
+  <div class="text-block">
 
-        <p>
-            Below are a selection of personal projects exploring motion design,
-            hand-drawn animation, and collaborations with sound designers
-            and filmmakers.
-        </p>
+    <p>
+      Below are a selection of personal projects exploring motion design,
+      hand-drawn animation, and collaborations with sound designers
+      and filmmakers.
+    </p>
 
-        <p>
-            All animation and illustration by me.
-        </p>
+    <p>All animation and illustration by me.</p>
 
-    </div>
+  </div>
 
 </div>
 
-
-
-<!-- Personal Grid -->
+<!-- ================= Grid ================= -->
 
 <div class="video-gallery-grid">
 
 
-
-<!-- Project -->
+<!-- ===== Project Template ===== -->
 
 <div class="project-block"
      data-videos="/perso_videos/LD_480.mp4">
 
-    <div class="video-crop">
+  <div class="video-crop">
 
-        <video
-        muted
-        preload="metadata"
-        playsinline
-        webkit-playsinline
-        controls>
+    <video
+      muted
+      preload="auto"
+      playsinline
+      webkit-playsinline>
 
+      <source src="/perso_videos/LD_480.mp4" type="video/mp4">
 
-            <source src="/perso_videos/LD_480.mp4" type="video/mp4">
+    </video>
 
-        </video>
+    <div class="video-overlay">▶</div>
 
-        <div class="video-overlay">▶</div>
+  </div>
 
-    </div>
-
-    <p class="tile-title">Long Distance</p>
-    <p class="tile-caption">Sound by Joseph Sims</p>
+  <p class="tile-title">Long Distance</p>
+  <p class="tile-caption">Sound by Joseph Sims</p>
 
 </div>
-
 
 
 <div class="project-block"
      data-videos="/perso_videos/PU_480.mp4">
 
-    <div class="video-crop">
+  <div class="video-crop">
 
-        <video
-        muted
-        preload="metadata"
-        playsinline
-        webkit-playsinline
-        controls>
+    <video muted preload="auto" playsinline webkit-playsinline>
+      <source src="/perso_videos/PU_480.mp4">
+    </video>
 
-            <source src="/perso_videos/PU_480.mp4" type="video/mp4">
+    <div class="video-overlay">▶</div>
 
-        </video>
+  </div>
 
-        <div class="video-overlay">▶</div>
-
-    </div>
-
-    <p class="tile-title">Push-ups</p>
+  <p class="tile-title">Push-ups</p>
 
 </div>
-
 
 
 <div class="project-block"
      data-videos="/pr_vid/PR_480.mp4">
 
-    <div class="video-crop">
+  <div class="video-crop">
 
-        <video
-        muted
-        preload="metadata"
-        playsinline
-        webkit-playsinline
-        controls>
+    <video muted preload="auto" playsinline webkit-playsinline>
+      <source src="/pr_vid/PR_480.mp4">
+    </video>
 
+    <div class="video-overlay">▶</div>
 
-            <source src="/pr_vid/PR_480.mp4" type="video/mp4">
+  </div>
 
-        </video>
+  <p class="tile-title">Pain Rat</p>
 
-        <div class="video-overlay">▶</div>
-
-    </div>
-
-    <p class="tile-title">Pain Rat</p>
-
-    <p class="tile-caption">
-        Selected scene from <em>Pain Rat</em> (2026), directed by Martin Kramer.
-    </p>
+  <p class="tile-caption">
+    Selected scene from <em>Pain Rat</em> (2026), directed by Martin Kramer.
+  </p>
 
 </div>
 
 
-
-<!-- Tattoo -->
+<!-- ===== Tattoo Stack ===== -->
 
 <div class="project-block project-tattoo"
      data-videos="/perso_videos/Tattoo_01_480_1.mp4,/perso_videos/Tattoo_02_480_1.mp4">
 
-
-    <div class="tattoo-stack">
-
-
-        <div class="video-crop tattoo-clip" data-index="0">
-
-            <video
-            muted
-            preload="metadata"
-            playsinline
-            webkit-playsinline
-            controls>
+  <div class="tattoo-stack">
 
 
-                <source src="/perso_videos/Tattoo_01_480_1.mp4">
+    <div class="video-crop tattoo-clip">
 
-            </video>
+      <video muted preload="auto" playsinline webkit-playsinline>
+        <source src="/perso_videos/Tattoo_01_480_1.mp4">
+      </video>
 
-            <div class="video-overlay">▶</div>
-
-        </div>
-
-
-        <div class="video-crop tattoo-clip" data-index="1">
-
-            <video
-             muted
-             preload="metadata"
-             playsinline
-             webkit-playsinline
-             controls>
-
-
-                <source src="/perso_videos/Tattoo_02_480_1.mp4">
-
-            </video>
-
-            <div class="video-overlay">▶</div>
-
-        </div>
-
+      <div class="video-overlay">▶</div>
 
     </div>
 
 
-    <p class="tile-title">Tattoo</p>
+    <div class="video-crop tattoo-clip">
 
-    <p class="tile-caption">
-        Selected scenes from <em>Tattoo</em> (2022), directed by me.
-    </p>
+      <video muted preload="auto" playsinline webkit-playsinline>
+        <source src="/perso_videos/Tattoo_02_480_1.mp4">
+      </video>
+
+      <div class="video-overlay">▶</div>
+
+    </div>
+
+
+  </div>
+
+  <p class="tile-title">Tattoo</p>
+
+  <p class="tile-caption">
+    Selected scenes from <em>Tattoo</em> (2022), directed by me.
+  </p>
 
 </div>
-
 
 
 <div class="project-block"
      data-videos="/perso_videos/Apple_Sound_480.mp4">
 
-    <div class="video-crop">
+  <div class="video-crop">
 
-        <video
-        muted
-        preload="metadata"
-        playsinline
-        webkit-playsinline
-        controls>
+    <video muted preload="auto" playsinline webkit-playsinline>
+      <source src="/perso_videos/Apple_Sound_480.mp4">
+    </video>
 
+    <div class="video-overlay">▶</div>
 
+  </div>
 
-            <source src="/perso_videos/Apple_Sound_480.mp4">
-
-        </video>
-
-        <div class="video-overlay">▶</div>
-
-    </div>
-
-    <p class="tile-title">Apple</p>
+  <p class="tile-title">Apple</p>
 
 </div>
-
 
 
 <div class="project-block"
      data-videos="/perso_videos/Mirror_480.mp4">
 
-    <div class="video-crop">
+  <div class="video-crop">
 
-        <video
-        muted
-        preload="metadata"
-        playsinline
-        webkit-playsinline
-        controls>
+    <video muted preload="auto" playsinline webkit-playsinline>
+      <source src="/perso_videos/Mirror_480.mp4">
+    </video>
 
+    <div class="video-overlay">▶</div>
 
-            <source src="/perso_videos/Mirror_480.mp4">
+  </div>
 
-        </video>
-
-        <div class="video-overlay">▶</div>
-
-    </div>
-
-    <p class="tile-title">Mirror</p>
+  <p class="tile-title">Mirror</p>
 
 </div>
 
 
 </div>
 
-
-
-<!-- Lightbox -->
+<!-- ================= Lightbox ================= -->
 
 <div class="video-lightbox" id="videoLightbox">
 
-    <div class="video-lightbox-inner">
+  <div class="video-lightbox-inner">
 
-        <video
-            id="lightboxVideo"
-            controls
-            playsinline
-            webkit-playsinline>
-        </video>
+    <video
+      id="lightboxVideo"
+      controls
+      playsinline
+      webkit-playsinline>
+    </video>
 
-    </div>
+  </div>
 
 </div>
 
-
-
-<!-- Scripts -->
+<!-- ================= Scripts ================= -->
 
 <script>
 
-const blocks = document.querySelectorAll(".project-block");
-
+const blocks   = document.querySelectorAll(".project-block");
 const lightbox = document.getElementById("videoLightbox");
 const player   = document.getElementById("lightboxVideo");
 
@@ -312,15 +247,17 @@ let index = 0;
 /* Desktop detection */
 
 function isDesktop() {
-    return window.matchMedia("(hover: hover)").matches;
+  return window.matchMedia("(hover: hover)").matches;
 }
 
+
+/* Click handling */
 
 blocks.forEach(block => {
 
   block.addEventListener("click", () => {
 
-    // Desktop = lightbox
+    /* Desktop → Lightbox */
     if (isDesktop()) {
 
       playlist = block.dataset.videos
@@ -332,14 +269,13 @@ blocks.forEach(block => {
 
     }
 
-    // Mobile = play inline
+    /* Mobile → Inline play */
     else {
 
       const video = block.querySelector("video");
-
       if (!video) return;
 
-      video.controls = true;
+      video.setAttribute("controls", "");
       video.play();
 
     }
@@ -348,82 +284,80 @@ blocks.forEach(block => {
 
 });
 
+
 function openVideo() {
 
-    player.src = playlist[index];
+  player.src = playlist[index];
 
-    lightbox.classList.add("active");
+  lightbox.classList.add("active");
 
-    player.play();
+  player.play();
 
 }
 
 
-/* Close */
+/* Close lightbox */
 
 lightbox.addEventListener("click", e => {
 
-    if (e.target === lightbox) close();
+  if (e.target === lightbox) close();
 
 });
 
 
 document.addEventListener("keydown", e => {
 
-    if (!lightbox.classList.contains("active")) return;
+  if (!lightbox.classList.contains("active")) return;
 
-    if (e.key === "Escape") close();
-    if (e.key === "ArrowRight") next();
-    if (e.key === "ArrowLeft") prev();
+  if (e.key === "Escape") close();
+  if (e.key === "ArrowRight") next();
+  if (e.key === "ArrowLeft") prev();
 
 });
 
 
 function close() {
 
-    lightbox.classList.remove("active");
+  lightbox.classList.remove("active");
 
-    player.pause();
-    player.src = "";
+  player.pause();
+  player.src = "";
 
 }
 
 
 function next() {
 
-    index = (index + 1) % playlist.length;
-
-    openVideo();
+  index = (index + 1) % playlist.length;
+  openVideo();
 
 }
 
 
 function prev() {
 
-    index = (index - 1 + playlist.length) % playlist.length;
-
-    openVideo();
+  index = (index - 1 + playlist.length) % playlist.length;
+  openVideo();
 
 }
 
 </script>
 
 
+<!-- Mobile Menu -->
 
 <script>
 
-/* Mobile Menu */
-
 document.addEventListener("DOMContentLoaded", () => {
 
-    const toggle  = document.querySelector(".menu-toggle");
-    const sidebar = document.querySelector(".sidebar");
+  const toggle  = document.querySelector(".menu-toggle");
+  const sidebar = document.querySelector(".sidebar");
 
-    if (!toggle || !sidebar) return;
+  if (!toggle || !sidebar) return;
 
-    toggle.addEventListener("click", () => {
-        sidebar.classList.toggle("open");
-    });
+  toggle.addEventListener("click", () => {
+    sidebar.classList.toggle("open");
+  });
 
 });
 
