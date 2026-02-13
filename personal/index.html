@@ -319,19 +319,29 @@ blocks.forEach(block => {
   }
 
   /* DESKTOP → Lightbox */
-  block.addEventListener("click", () => {
+  block.addEventListener("click", e => {
+
+    const clips = block.querySelectorAll("video");
+
+    // Which video was clicked?
+    let clickedIndex = 0;
+
+    clips.forEach((v, i) => {
+      if (v === e.target || v.contains(e.target)) {
+        clickedIndex = i;
+      }
+    });
 
     playlist = block.dataset.videos
       .split(",")
       .map(v => v.trim());
 
-    index = 0;
+    index = clickedIndex;
     openVideo();
 
   });
 
-});
-
+}); // ✅ THIS was missing
 
 /* Lightbox controls */
 
