@@ -301,110 +301,158 @@
 <!-- ================= Scripts ================= -->
 
 <script>
-const blocks   = document.querySelectorAll(".project-block");
-const lightbox = document.getElementById("videoLightbox");
-const player   = document.getElementById("lightboxVideo");
+document.addEventListener("DOMContentLoaded", () => {
 
-/* True mobile check */
-const isMobile = window.matchMedia("(max-width: 768px)").matches;
+  /* ============================
+     Mobile Detection
+  ============================ */
 
-let playlist = [];
-let index = 0;
+  const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
-/* Setup blocks */
 
-blocks.forEach(block => {
+  /* ============================
+     Sidebar Menu Toggle
+  ============================ */
 
-  const videos = block.querySelectorAll("video");
-  if (!videos.length) return;
+  const menuBtn = document.querySelector(".menu-toggle");
+  const sidebar = document.querySelector(".sidebar");
 
-  /* MOBILE → Native playback */
-  if (isMobile) {
-
-    videos.forEach(v => {
-  v.setAttribute("controls", "true");
-});
-
-    // Never open lightbox
-    block.onclick = null;
-
-    return;
+  if (menuBtn && sidebar) {
+    menuBtn.addEventListener("click", (e) => {
+      e.stopPropagation(); // Prevent interference
+      sidebar.classList.toggle("open");
+    });
   }
 
-  /* DESKTOP → Lightbox */
-  block.addEventListener("click", e => {
 
-    const clips = block.querySelectorAll("video");
+  /* ============================
+     Lightbox Setup (Desktop Only)
+  ============================ */
 
-    // Which video was clicked?
-    let clickedIndex = 0;
+  const blocks   = document.querySelectorAll(".project-block");
+  const lightbox = document.getElementById("videoLightbox");
+  const player   = document.getElementById("lightboxVideo");
 
-    clips.forEach((v, i) => {
-      if (v === e.target || v.contains(e.target)) {
-        clickedIndex = i;
-      }
+  let playlist = [];
+  let index = 0;
+
+
+  /* ============================
+     Mobile: Native Video
+  ============================ */
+
+  if (isMobile) {
+
+    blocks.forEach(block => {
+
+      const videos = block.querySelectorAll("video");
+
+      videos.forEach(video => {
+        video.setAttribute("controls", "true");
+      });
+
+      // Disable all desktop click behavior
+      block.style.cursor = "default";
     });
 
-    playlist = block.dataset.videos
-      .split(",")
-      .map(v => v.trim());
+    return; // Stop here on mobile
+  }
 
-    index = clickedIndex;
-    openVideo();
+
+  /* ============================
+     Desktop: Lightbox Logic
+  ============================ */
+
+  blocks.forEach(block => {
+
+    const videos = block.querySelectorAll("video");
+    if (!videos.length) return;
+
+    block.addEventListener("click", (e) => {
+
+      // Prevent menu / layout conflicts
+      e.preventDefault();
+      e.stopPropagation();
+
+      const clips = Array.from(videos);
+
+      let clickedIndex = clips.findIndex(v =>
+        v === e.target || v.contains(e.target)
+      );
+
+      if (clickedIndex < 0) clickedIndex = 0;
+
+      playlist = block.dataset.videos
+        .split(",")
+        .map(v => v.trim());
+
+      index = clickedIndex;
+
+      openVideo();
+    });
 
   });
 
-}); // ✅ THIS was missing
 
-/* Lightbox controls */
+  /* ============================
+     Lightbox Controls
+  ============================ */
 
-function openVideo() {
+  function openVideo() {
 
-  player.src = playlist[index];
-  lightbox.classList.add("active");
+    if (!playlist.length) return;
 
-  player.play();
-}
+    player.src = playlist[index];
+    lightbox.classList.add("active");
 
-
-function close() {
-
-  lightbox.classList.remove("active");
-
-  player.pause();
-  player.src = "";
-}
+    player.play().catch(() => {});
+  }
 
 
-function next() {
-  index = (index + 1) % playlist.length;
-  openVideo();
-}
+  function closeLightbox() {
+
+    lightbox.classList.remove("active");
+
+    player.pause();
+    player.src = "";
+  }
 
 
-function prev() {
-  index = (index - 1 + playlist.length) % playlist.length;
-  openVideo();
-}
+  function next() {
+
+    index = (index + 1) % playlist.length;
+    openVideo();
+  }
 
 
-/* Close handlers */
+  function prev() {
 
-lightbox.addEventListener("click", e => {
-  if (e.target === lightbox) close();
-});
+    index = (index - 1 + playlist.length) % playlist.length;
+    openVideo();
+  }
 
 
-document.addEventListener("keydown", e => {
+  /* ============================
+     Close Handlers
+  ============================ */
 
-  if (!lightbox.classList.contains("active")) return;
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
 
-  if (e.key === "Escape") close();
-  if (e.key === "ArrowRight") next();
-  if (e.key === "ArrowLeft") prev();
+
+  document.addEventListener("keydown", (e) => {
+
+    if (!lightbox.classList.contains("active")) return;
+
+    if (e.key === "Escape") closeLightbox();
+    if (e.key === "ArrowRight") next();
+    if (e.key === "ArrowLeft") prev();
+  });
 
 });
 </script>
+
 
 
 
