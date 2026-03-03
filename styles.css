@@ -1835,5 +1835,36 @@ iframe,
   }
 
 }
+/* =====================================
+   FURTHER STUDY — FULL WIDTH LIKE PERSONAL
+===================================== */
 
+.further-study-page .main-content {
+    max-width: none;
+}
 
+.further-study-page .video-grid {
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    max-width: none;
+    margin: 60px 0;
+}
+/* =====================================
+   FURTHER STUDY — Caption Align Left
+===================================== */
+
+.further-study-page .media-caption {
+    max-width: none;
+    margin: 0px 0 0 0;  /* remove auto centering */
+}
+/* =====================================
+   FURTHER STUDY — Tight Caption Spacing
+===================================== */
+
+.further-study-page .video-grid {
+    margin-bottom: 8px; /* reduce from 40px */
+}
+
+.further-study-page .media-caption {
+    margin-top: 8px;
+}
