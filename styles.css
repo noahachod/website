@@ -72,6 +72,12 @@ body {
     font-weight: 500;
 }
 
+/* Lowercase nav items */
+.nav a[href="/about/"],
+.work-label {
+    text-transform: lowercase;
+}
+
 /* ==============================
    Work submenu
 ============================== */
@@ -100,7 +106,6 @@ body {
 main {
     margin-left: 220px;
     padding: 40px;
-    max-width: none;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -157,6 +162,17 @@ main p {
 }
 
 /* ==============================
+   About page
+============================== */
+.about-page main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 120px;
+}
+
+/* ==============================
    16:9 video wrapper
 ============================== */
 .video-wrapper {
@@ -165,7 +181,6 @@ main p {
     height: 0;
     overflow: hidden;
     width: 100%;
-    border-radius: 8px;
 }
 
 .video-wrapper iframe {
@@ -177,16 +192,17 @@ main p {
 }
 
 /* ==============================
-   SINGLE VIDEOS
+   Single video figure
 ============================== */
 .video-figure {
     width: 100%;
     max-width: 900px;
     margin: 40px auto;
+    align-self: stretch;
 }
 
 /* ==============================
-   LARGE 2x2 VIDEO GRID (CC & FS)
+   2x2 video grid (default)
 ============================== */
 .video-grid {
     display: grid;
@@ -199,9 +215,7 @@ main p {
 
 .video-grid .video-wrapper {
     width: 100%;
-    max-width: none;
     aspect-ratio: 16 / 9;
-    border-radius: 8px;
 }
 
 /* ==============================
@@ -223,15 +237,32 @@ main p {
     max-width: 1400px;
     margin: 12px auto 0;
     font-size: 0.85rem;
-    font-weight: normal;
     color: #888;
     line-height: 1.4;
     text-align: left;
 }
 
 /* ==============================
-   Thought Café Shorts Grid (3x2)
+   Shorts section & grid
 ============================== */
+.shorts-section {
+    width: 100%;
+    max-width: 900px;
+    margin: 32px auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+}
+
+.shorts-section .media-caption {
+    margin-top: 12px;
+}
+
+.shorts-section .video-wrapper {
+    margin-top: 12px;
+}
+
 .shorts-grid {
     width: 100%;
     max-width: 700px;
@@ -243,21 +274,8 @@ main p {
     justify-items: center;
 }
 
-.shorts-section {
-    width: 100%;
-    max-width: 900px;
-    margin: 32px auto 0;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.shorts-section .media-caption {
-    margin-top: 12px;
-}
-
 /* ==============================
-   Sandbox Shorts (9:16)
+   Shorts row (9:16)
 ============================== */
 .shorts-row {
     width: 100%;
@@ -274,7 +292,6 @@ main p {
     flex: 0 0 auto;
     position: relative;
     overflow: hidden;
-    border-radius: 8px;
 }
 
 .short-wrapper iframe {
@@ -309,7 +326,7 @@ main p {
 }
 
 /* ==============================
-   Lightbox
+   Lightbox (image)
 ============================== */
 .lightbox {
     position: fixed;
@@ -335,649 +352,17 @@ main p {
 }
 
 /* ==============================
-   Lowercase nav rule
+   Video lightbox
 ============================== */
-.nav a[href="/about/"],
-.work-label {
-    text-transform: lowercase;
-}
-
-/* ==============================
-   Responsive
-============================== */
-@media (max-width: 700px) {
-    .sidebar {
-        position: static;
-        width: 100%;
-        height: auto;
-    }
-
-    main {
-        margin-left: 0;
-        padding: 24px;
-    }
-
-    main > * {
-        max-width: 100%;
-    }
-
-    .video-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .shorts-row {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .shorts-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* ==============================
-   Hi animation
-============================== */
-.hi-animate span {
-    display: inline-block;
-    opacity: 0;
-    transform: translate(5px, 15px);
-    animation: hiWave 0.33s cubic-bezier(0, 0, 0.58, 1) forwards;
-}
-
-.hi-animate span:nth-child(1) { animation-delay: 0s; }
-.hi-animate span:nth-child(2) { animation-delay: 0.06s; }
-.hi-animate span:nth-child(3) { animation-delay: 0.12s; }
-
-@keyframes hiWave {
-    0% { opacity: 0; transform: translate(5px, 15px); }
-    70% { opacity: 1; transform: translate(0, -4px); }
-    100% { opacity: 1; transform: translate(0, 0); }
-}
-
-/* Let media sections control their own alignment */
-.video-figure,
-.shorts-section {
-    align-self: stretch;
-}
-
-/* Match shorts spacing for single videos */
-.shorts-section .video-wrapper {
-    margin-top: 12px;
-}
-
-.about-page main {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding-top: 120px;
-}
-
-/* ==============================
-   LARGE 2x2 VIDEO GRID OVERRIDE (CC & FS)
-============================== */
-.video-grid.video-grid--large {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
-    width: 100%;
-    max-width: 1200px;       /* middle-ground max width */
-    margin: 40px auto;
-    justify-content: center; /* center grid */
-}
-
-.video-grid.video-grid--large .video-wrapper {
-    padding-bottom: 0 !important; /* remove old 16:9 hack */
-    height: auto !important;
-    width: 100%;
-    max-width: 600px;        /* middle-ground per video */
-    aspect-ratio: 16 / 9;
-    border-radius: 8px;
-    position: relative;      /* keeps iframe absolutely positioned */
-}
-
-.video-grid.video-grid--large .video-wrapper iframe {
-    width: 100%;
-    height: 100%;
-    border: 0;
-    display: block;
-}
-/* ==============================
-   DAIS 2x2 VIDEO GRID — properly larger videos
-============================== */
-.video-grid.video-grid--dais {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
-    width: 100%;
-    max-width: 1500px;  /* increase overall grid width */
-    margin: 40px auto;
-    justify-content: center;
-    align-items: start;
-}
-
-/* ==============================
-   DAIS 2x2 VIDEO GRID — shave 1px visually
-============================== */
-.video-grid.video-grid--dais .video-wrapper video {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-    object-fit: cover;
-    display: block;
-    transform: scale(0.998); /* shrink slightly, about 1px visually */
-    transform-origin: center center; /* keeps it centered */
-}
-/* ==================================================
-   PAGE-SCOPED VIDEO SIZE OVERRIDES
-   Only affect CC, FS, and DAIS
-================================================== */
-
-/* Crash Course */
-.crash-course-page .video-grid {
-    max-width: 1200px;
-}
-
-/* Further Study */
-.further-study-page .video-grid {
-    max-width: 1200px;
-}
-
-/* DAIS */
-.dais-page .video-grid {
-    max-width: 1200px;
-}
-/* ==================================================
-   PAGE-SCOPED WIDER MEDIA CONTAINERS
-   CC, FS, DAIS only
-================================================== */
-
-.crash-course-page .main-content,
-.further-study-page .main-content,
-.dais-page .main-content {
-    max-width: 1200px;
-}
-/* ==============================
-   SANDBOX SLIDES — Large Grid
-============================== */
-
-.sandbox-page .video-grid--sandbox {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
-    width: 100%;
-    max-width: 1500px;   /* matches DAIS feel */
-    margin: 40px auto;
-    justify-content: center;
-}
-
-.sandbox-page .video-grid--sandbox .video-wrapper {
-    width: 100%;
-    max-width: none;
-    aspect-ratio: 16 / 9;
-}
-
-.sandbox-page .video-grid--sandbox video {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 12px;
-}
-/* ==============================
-   SANDBOX — Slides Layout + Caption Control
-============================== */
-
-/* Let Sandbox break out of main-content width */
-.sandbox-page .main-content {
-    max-width: none;
-}
-
-/* Uncap section width */
-.sandbox-page .shorts-section {
-    max-width: none;
-}
-
-/* Make Slides grid larger */
-.sandbox-page .video-grid--sandbox {
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* ==============================
-   SANDBOX — Slides Caption Only
-============================== */
-
-/* Align ONLY the Sandbox Slides title */
-.sandbox-page .sandbox-slides .media-caption--above {
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Keep Shorts caption tight under Shorts */
-.sandbox-page .shorts-section .media-caption {
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-}
-/* ==============================
-   Mobile Styles
-============================== */
-
-@media (max-width: 768px) {
-
-    /* Layout */
-    body {
-        flex-direction: column;
-    }
-
-    main {
-        margin-left: 0;
-        padding: 24px 20px;
-    }
-
-    /* Sidebar */
-    .sidebar {
-        position: relative;
-        width: 100%;
-        height: auto;
-        border-right: none;
-        border-bottom: 1px solid #eee;
-        padding: 16px 20px;
-    }
-
-    .nav {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-    }
-
-    .work-items {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px 16px;
-    }
-
-    /* Text */
-    .text-block {
-        max-width: 100%;
-    }
-
-    h2 {
-        font-size: 1.6rem;
-        margin-bottom: 24px;
-    }
-
-    /* Video grids → keep desktop layout */
-.video-grid,
-.video-grid--large,
-.video-grid--sandbox,
-.video-grid--dais {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-}
-    /* Shorts row → stack */
-    .shorts-row {
-        flex-direction: column;
-        gap: 16px;
-    }
-
-    /* Media sizing */
-    .video-wrapper,
-    .short-wrapper,
-    .video-figure {
-        width: 100%;
-    }
-
-    iframe,
-    video {
-        width: 100%;
-        height: auto;
-        aspect-ratio: auto;
-    }
-
-    /* Captions */
-    .media-caption,
-    .media-caption--above {
-        font-size: 0.8rem;
-        padding: 0 4px;
-    }
-}
-/* ==============================
-   PERSONAL — CLEAN LAYOUT SYSTEM
-============================== */
-
-.personal-page .personal-block {
-    width: 100%;
-    max-width: 900px;
-    margin: 40px auto;
-    text-align: center;
-}
-/* PERSONAL — Unified Media Width (Desktop) */
-.personal-page .personal-media {
-    width: 100%;
-    max-width: 720px;   /* adjust to taste: 680–800px */
-    margin: 0 auto;
-
-    display: block;
-    text-align: left;
-}
-/* PERSONAL — Make all videos fill container width */
-.personal-page .personal-media video {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-/* Captions */
-
-.personal-page .personal-media .media-caption {
-    margin-top: 12px;
-    width: 100%;
-    max-width: none;
-    text-align: left;
-
-    white-space: normal;
-    overflow: visible;
-}
-
-/* Stacked (Tattoo) */
-
-.personal-page .personal-media.stacked {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-/* ==================================================
-   CLEAN MOBILE STACKING — MASTER OVERRIDE
-   Preserves desktop, forces vertical on mobile
-================================================== */
-
-@media (max-width: 768px) {
-
-    /* Sidebar → top bar */
-    .sidebar {
-        position: static;
-        width: 100%;
-        height: auto;
-        padding: 20px;
-    }
-
-    main {
-        margin-left: 0;
-        padding: 24px 20px;
-    }
-
-    .main-content {
-        margin-top: 40px;
-        max-width: 100%;
-    }
-
-    /* -----------------------------
-       Force all grids → 1 column
-    ----------------------------- */
-
-    .video-grid,
-    .video-grid--large,
-    .video-grid--dais,
-    .video-grid--sandbox,
-    .shorts-grid {
-        grid-template-columns: 1fr !important;
-        max-width: 100% !important;
-        gap: 24px;
-    }
-
-    /* -----------------------------
-       Force flex rows → columns
-    ----------------------------- */
-
-    .shorts-row,
-    .image-row {
-        flex-direction: column !important;
-        align-items: center;
-        gap: 20px;
-    }
-
-    /* -----------------------------
-       Media sizing
-    ----------------------------- */
-
-    .video-wrapper,
-    .video-wrapper iframe,
-    .short-wrapper,
-    .short-wrapper iframe,
-    video,
-    img {
-        width: 100% !important;
-        max-width: 100% !important;
-        height: auto;
-    }
-    /* -----------------------------
-       Text spacing
-    ----------------------------- */
-
-    h2 {
-        font-size: 1.4rem;
-    }
-
-    p {
-        font-size: 1rem;
-        line-height: 1.6;
-    }
-
-    /* -----------------------------
-       Personal page
-    ----------------------------- */
-
-    .personal-page .personal-media {
-        width: 100%;
-    }
-
-    .personal-page .personal-media.stacked {
-        gap: 20px;
-    }
-
-    /* -----------------------------
-       Navigation behavior
-    ----------------------------- */
-
-    .work-items {
-        opacity: 1;
-        transform: none;
-        pointer-events: auto;
-    }
-
-}
-/* ==============================
-   PERSONAL — Square Video Gallery
-============================== */
-
-.video-gallery {
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    padding: 40px 40px;
-
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: minmax(220px, 1fr);
-    gap: 24px;
-
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-}
-
-/* Each square */
-.video-thumb {
-    position: relative;
-
-    aspect-ratio: 1 / 1;
-    width: 100%;
-
-    border-radius: 12px;
-    overflow: hidden;
-
-    cursor: pointer;
-    background: #000;
-
-    scroll-snap-align: start;
-}
-/* ==============================
-   PERSONAL — Project-Based 3x3 Grid
-============================== */
-
-/* PERSONAL — Project Grid (Full Width, 3 Per Row) */
-.video-gallery-grid {
-    width: 100%;
-    margin: 60px 0;
-
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 48px;
-
-    padding: 0 20px; /* breathing room from edges */
-}
-
-
-/* Each project tile */
-.project-block {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-
-    cursor: pointer;
-}
-
-
-/* Square crop */
-.video-crop {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 1 / 1;
-
-    overflow: hidden;
-    border-radius: 14px;
-    background: #000;
-}
-
-
-/* Center crop video */
-.video-crop video {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-    object-position: center;
-
-    display: block;
-}
-
-
-/* Tattoo tile = normal size */
-.project-tattoo {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-/* Two previews inside, share space */
-.project-tattoo .video-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-}
-
-/* Two previews side-by-side at full size */
-.project-tattoo .video-row {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-}
-
-
-/* Captions */
-.tile-caption {
-    font-size: 0.85rem;
-    color: #777;
-    line-height: 1.4;
-}
-
-/* ==================================================
-   MOBILE MEDIA FIX — Prevent Stretch & Crop
-================================================== */
-
-@media (max-width: 768px) {
-
-    /* -----------------------------
-       Fix Images (Adam, galleries)
-    ----------------------------- */
-
-    .image-row img {
-        width: auto !important;
-        max-width: 100% !important;
-        height: auto !important;
-        max-height: none !important;
-        object-fit: contain;
-    }
-
-    /* -----------------------------
-       Fix Video Wrappers (FS, TC, Sandbox)
-    ----------------------------- */
-
-    .video-wrapper {
-        padding-bottom: 0 !important;
-        height: auto !important;
-        overflow: visible !important;
-        aspect-ratio: 16 / 9;
-    }
-
-    .video-wrapper iframe,
-    .video-wrapper video {
-        position: relative !important;
-        width: 100% !important;
-        height: auto !important;
-        aspect-ratio: 16 / 9;
-        display: block;
-        object-fit: contain;
-    }
-
-    /* -----------------------------
-       Shorts (9:16) fix
-    ----------------------------- */
-
-    .short-wrapper {
-        height: auto !important;
-        aspect-ratio: 9 / 16;
-        overflow: visible !important;
-    }
-
-    .short-wrapper iframe {
-        position: relative !important;
-        width: 100% !important;
-        height: auto !important;
-        aspect-ratio: 9 / 16;
-    }
-
-}
-
-/* ==============================
-   VIDEO LIGHTBOX
-============================== */
-
 .video-lightbox {
     position: fixed;
     inset: 0;
-
     background: rgba(0,0,0,0.85);
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     opacity: 0;
     pointer-events: none;
-
     transition: opacity 0.25s ease;
     z-index: 3000;
 }
@@ -996,119 +381,448 @@ main p {
     width: 100%;
     height: auto;
     max-height: 90vh;
-
     border-radius: 12px;
     background: #000;
 }
-/* Make all project thumbnails square */
-.project-block .video-crop,
-.project-tattoo .tattoo-stack {
-    aspect-ratio: 1 / 1;
+
+/* ==============================
+   Hi animation
+============================== */
+.hi-animate span {
+    display: inline-block;
+    opacity: 0;
+    transform: translate(5px, 15px);
+    animation: hiWave 0.33s cubic-bezier(0, 0, 0.58, 1) forwards;
+}
+
+.hi-animate span:nth-child(1) { animation-delay: 0s; }
+.hi-animate span:nth-child(2) { animation-delay: 0.06s; }
+.hi-animate span:nth-child(3) { animation-delay: 0.12s; }
+
+@keyframes hiWave {
+    0%   { opacity: 0; transform: translate(5px, 15px); }
+    70%  { opacity: 1; transform: translate(0, -4px); }
+    100% { opacity: 1; transform: translate(0, 0); }
+}
+
+/* ==============================
+   Page-scoped width overrides
+   (Crash Course, Further Study, DAIS)
+============================== */
+.crash-course-page .main-content,
+.further-study-page .main-content {
+    max-width: 1200px;
+}
+
+.crash-course-page .video-grid,
+.further-study-page .video-grid {
+    max-width: 1200px;
+}
+
+/* Tighten caption spacing for CC + FS */
+.crash-course-page .video-grid,
+.crash-course-page .video-grid--large,
+.further-study-page .video-grid,
+.further-study-page .video-grid--large {
+    margin-bottom: 0;
+}
+
+/* ==============================
+   Further Study — 3-column grid & captions
+============================== */
+.further-study-page .main-content {
+    max-width: 2000px;
+}
+
+.further-study-page .video-grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: none;
+    margin: 60px 0;
+    margin-bottom: 8px;
+}
+
+.further-study-page .media-caption {
+    max-width: none;
+    margin: 8px 0 0 0;
+}
+.crash-course-page .main-content {
+    max-width: 2000px;
+}
+
+.crash-course-page .video-grid {
+    max-width: none;
+    margin: 60px 0;
+    margin-bottom: 8px;
+}
+
+.crash-course-page .media-caption {
+    max-width: none;
+    margin: 8px 0 0 0;
+}
+/* ==============================
+   DAIS video grid
+============================== */
+.video-grid.video-grid--dais {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
     width: 100%;
+    max-width: none;
+    margin: 40px auto;
+    justify-content: center;
+    align-items: start;
+}
+
+.video-grid.video-grid--dais .video-wrapper video {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+.dais-page .video-grid--dais .video-wrapper {
+    padding-bottom: 0;
+    height: auto;
+    aspect-ratio: 16 / 9;
+}
+.dais-page .main-content {
+    max-width: 2000px;
+    margin-top: 0;
+}
+.dais-page h2 {
+    text-align: center;
+}
+.dais-page .text-block {
+    margin-top: 60px;
+}
+.dais-page .video-grid--dais .video-wrapper {
     overflow: hidden;
 }
 
+.dais-page .video-grid--dais .video-wrapper video {
+    margin: -5px;
+    width: calc(100% + 10px);
+    height: calc(100% + 10px);
+}
+/* ==============================
+   Sandbox page
+============================== */
+.sandbox-page .main-content {
+    max-width: none;
+    align-self: stretch;
+}
 
-/* Stack tattoo videos vertically */
-.tattoo-stack {
+.sandbox-page .shorts-section {
+    max-width: none;
+}
+
+.sandbox-page .sandbox-shorts-grid {
     display: grid;
-    grid-template-rows: 1fr 1fr;
-    gap: 2px; /* optional divider */
-}
-
-
-/* Each tattoo clip fills half */
-.tattoo-stack .video-crop {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 12px;
     width: 100%;
-    height: 100%;
+    max-width: 2000px;
+    margin: 0 auto;
 }
 
+.sandbox-page .sandbox-shorts-grid .short-wrapper {
+    height: auto;
+    aspect-ratio: 9 / 16;
+    width: 100%;
+    flex: none;
+}
 
-/* Ensure videos crop properly */
-.video-crop video {
+.sandbox-page .video-grid--sandbox {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    width: 100%;
+    max-width: 2000px;
+    margin: 40px auto;
+}
+
+.sandbox-page .video-grid--sandbox .video-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 0;
+}
+
+.sandbox-page .video-grid--sandbox video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.sandbox-page .media-caption--above {
+    max-width: 2000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sandbox-page .media-caption {
+    max-width: 2000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sandbox-page .sandbox-testimonial .media-caption--above {
+    max-width: 900px;
+}
+.sandbox-page .video-figure {
+    margin-top: 0;
+}
+
+.sandbox-page .video-grid--sandbox {
+    margin-top: 0;
+}
+
+/* ==============================
+   Index: caption alignment
+============================== */
+.video-figure + .text-block {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.video-figure + .text-block {
+    align-self: stretch;
+}
+
+/* ==============================
+   Index: Work grid title
+============================== */
+.work-grid-title {
+    margin-top: 4rem;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+    letter-spacing: 0.02em;
+}
+
+/* ==============================
+   Index: Work button grid
+============================== */
+.work-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    max-width: 2000px;
+    width: 100%;
+    margin: 0 auto 3rem;
+    padding: 0 12px;
+}
+
+.work-btn {
+    flex: 0 0 calc(33.333% - 16px);
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.work-btn {
+    display: block;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.work-btn video {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
 }
+
+.work-btn img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+}
+
+.work-btn:focus,
+.work-btn:focus-visible,
+.work-btn:active {
+    outline: none;
+    box-shadow: none;
+}
+
 /* ==============================
-   PERSONAL — Lock Layout Width (Like Crash Course)
+   Mobile hamburger menu
 ============================== */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+    padding: 4px 0;
+}
+
+/* ==============================
+   Personal page — desktop
+============================== */
+.personal-page .personal-block {
+    width: 100%;
+    max-width: 900px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.personal-page .personal-media {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    display: block;
+    text-align: left;
+}
+
+.personal-page .personal-media video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.personal-page .personal-media .media-caption {
+    margin-top: 12px;
+    width: 100%;
+    max-width: none;
+    text-align: left;
+    white-space: normal;
+    overflow: visible;
+}
+
+.personal-page .personal-media.stacked {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.personal-page .project-block {
+    gap: 4px;
+}
+
+.personal-page .tile-title {
+    margin-top: 6px;
+    margin-bottom: 0;
+    line-height: 1.3;
+}
+
+.personal-page .tile-caption {
+    margin-top: 2px;
+    margin-bottom: 0;
+    line-height: 1.35;
+}
 
 .personal-page .video-gallery-grid {
-    max-width: 2000px;   /* match CC / FS feel */
-    margin: 60px auto;  /* center it */
-    padding: 0;         /* remove edge scaling */
+    max-width: 2000px;
+    margin: 60px auto;
+    padding: 0;
 }
-/* ==============================
-   Video Hover UI
-============================== */
 
-.video-crop {
-    position: relative;
-    overflow: hidden;
+.personal-page .video-crop video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Desktop: native video controls hidden, object-fit contain */
+@media (min-width: 769px) {
+    .personal-page video {
+        object-fit: contain;
+    }
+
+    video::-webkit-media-controls,
+    video::-webkit-media-controls-panel,
+    video::-webkit-media-controls-play-button,
+    video::-webkit-media-controls-start-playback-button,
+    video::-webkit-media-controls-timeline {
+        display: none;
+    }
+
+    /* GPU compositing hint */
+    video {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+}
+
+/* ==============================
+   Personal — square video gallery (horizontal scroll)
+============================== */
+.video-gallery {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    padding: 40px;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(220px, 1fr);
+    gap: 24px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+}
+
+/* ==============================
+   Personal — project 3x3 grid
+============================== */
+.video-gallery-grid {
+    width: 100%;
+    margin: 60px 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 48px;
+    padding: 0 20px;
+}
+
+.project-block {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     cursor: pointer;
 }
 
-/* Smooth zoom */
+.video-crop {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 14px;
+    background: #000;
+    cursor: pointer;
+}
+
 .video-crop video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
     transition: transform 0.35s ease;
 }
 
-/* Overlay */
 .video-overlay {
     position: absolute;
     inset: 0;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     font-size: 48px;
     color: white;
-
-    background: rgba(0, 0, 0, 0.35);
-
+    background: rgba(0,0,0,0.35);
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;
 }
-/* ==============================
-   Video Hover UI — Per Tile
-============================== */
 
-/* Base */
-.video-crop {
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-}
-
-/* Smooth zoom */
-.video-crop video {
-    transition: transform 0.35s ease;
-}
-
-/* Overlay */
-.video-overlay {
-    position: absolute;
-    inset: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 48px;
-    color: white;
-
-    background: rgba(0, 0, 0, 0.35);
-
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-}
-
-/* Normal tiles hover */
+/* Hover effects — normal tiles */
 .project-block:not(.project-tattoo) .video-crop:hover video {
     transform: scale(1.06);
 }
@@ -1117,21 +831,13 @@ main p {
     opacity: 1;
 }
 
-/* Tattoo: per-clip hover */
+/* Hover effects — tattoo per-clip */
 .project-tattoo .video-crop:hover video {
     transform: scale(1.05);
 }
 
 .project-tattoo .video-crop:hover .video-overlay {
     opacity: 1;
-}
-/* ==============================
-   Project Text Layout
-============================== */
-
-.project-block {
-    display: flex;
-    flex-direction: column;
 }
 
 .tile-title {
@@ -1146,22 +852,67 @@ main p {
     color: #777;
     line-height: 1.4;
 }
-/* ==================================================
-   PERSONAL + SITE — CLEAN MOBILE STACK (RESTORED)
-   Desktop untouched, Mobile = vertical
-================================================== */
 
+/* ==============================
+   Tattoo tile
+============================== */
+.project-tattoo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.project-tattoo .video-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.tattoo-stack {
+    width: 100%;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 2px;
+}
+
+.tattoo-stack .video-crop {
+    width: 100%;
+    aspect-ratio: 2 / 1;
+}
+
+/* ==============================
+   Global — no borders on media
+============================== */
+video,
+iframe,
+img,
+.video-crop,
+.video-wrapper,
+.short-wrapper,
+.personal-media {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: transparent;
+    border-radius: 0;
+}
+
+/* ==============================
+   Responsive — 768px breakpoint
+============================== */
 @media (max-width: 768px) {
+    .work-grid {
+    grid-template-columns: 1fr;
+}
 
-    /* -----------------------------
-       Layout
-    ----------------------------- */
-
+    /* Layout */
     .sidebar {
         position: static;
         width: 100%;
         height: auto;
         padding: 16px 20px;
+        align-items: flex-start;
     }
 
     main {
@@ -1174,10 +925,33 @@ main p {
         margin-top: 32px;
     }
 
-    /* -----------------------------
-       Force ALL grids → 1 column
-    ----------------------------- */
+    /* Hamburger */
+    .menu-toggle {
+        display: block;
+        margin-bottom: 12px;
+    }
 
+    .sidebar nav {
+        display: none;
+        width: 100%;
+    }
+
+    .sidebar.open nav {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    /* Always show work submenu */
+    .work-items {
+        opacity: 1;
+        transform: none;
+        pointer-events: auto;
+        flex-wrap: wrap;
+        gap: 8px 16px;
+    }
+
+    /* Force all grids to single column */
     .video-gallery-grid,
     .video-grid,
     .video-grid--large,
@@ -1189,10 +963,7 @@ main p {
         gap: 24px !important;
     }
 
-    /* -----------------------------
-       Force flex rows → columns
-    ----------------------------- */
-
+    /* Force flex rows to stack */
     .shorts-row,
     .image-row {
         flex-direction: column !important;
@@ -1200,23 +971,18 @@ main p {
         gap: 20px;
     }
 
-    /* -----------------------------
-       Personal Page
-    ----------------------------- */
-
-    .personal-page .personal-media {
-        width: 100% !important;
-        max-width: 100% !important;
+    /* Work button grid */
+    .work-grid {
+        gap: 12px;
+        padding: 0 6px;
     }
 
-    .personal-page .personal-media.stacked {
-        gap: 20px;
-    }
+    .work-btn {
+    flex: 0 0 100%;
+    max-width: none;
+}
 
-    /* -----------------------------
-       Media sizing
-    ----------------------------- */
-
+    /* Media sizing */
     video,
     iframe,
     img,
@@ -1227,10 +993,44 @@ main p {
         height: auto !important;
     }
 
-    /* -----------------------------
-       Typography
-    ----------------------------- */
+    /* Video wrapper aspect ratio */
+    .video-wrapper {
+        padding-bottom: 0;
+        height: auto;
+        overflow: visible;
+        aspect-ratio: 16 / 9;
+    }
 
+    .video-wrapper iframe,
+    .video-wrapper video {
+        position: relative;
+        aspect-ratio: 16 / 9;
+        display: block;
+        object-fit: contain;
+    }
+
+    /* Shorts aspect ratio */
+    .short-wrapper {
+        height: auto;
+        aspect-ratio: 9 / 16;
+        overflow: visible;
+    }
+
+    .short-wrapper iframe {
+        position: relative;
+        aspect-ratio: 9 / 16;
+    }
+
+    /* Images */
+    .image-row img {
+        width: auto !important;
+        max-width: 100% !important;
+        height: auto !important;
+        max-height: none !important;
+        object-fit: contain;
+    }
+
+    /* Typography */
     h2 {
         font-size: 1.4rem;
     }
@@ -1240,39 +1040,60 @@ main p {
         line-height: 1.6;
     }
 
-    /* -----------------------------
-       Navigation
-    ----------------------------- */
-
-    .work-items {
-        opacity: 1;
-        transform: none;
-        pointer-events: auto;
+    /* Border radius on media */
+    video,
+    iframe,
+    img {
+        display: block;
     }
-}
-/* ==================================================
-   PERSONAL ONLY — Mobile: Native Ratios
-   Does NOT affect other pages
-================================================== */
 
-@media (max-width: 768px) {
+    /* iOS background fix for video containers */
+    .video-crop,
+    .video-wrapper,
+    .short-wrapper,
+    .personal-media {
+        background: #000;
+    }
 
-    .personal-page .video-wrapper,
-    .personal-page .short-wrapper,
+    .video-figure,
+    .media-caption,
+    .text-block {
+        background: transparent;
+    }
+
+    /* Allow taps on mobile */
+    .video-overlay {
+        pointer-events: none;
+    }
+
+    /* Personal page */
+    .personal-page .personal-media,
+    .personal-page .personal-media.stacked {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .personal-page .personal-media.stacked {
+        gap: 20px;
+    }
+
     .personal-page .video-crop,
-    .personal-page .project-block,
-    .personal-page .tattoo-stack {
+    .personal-page .tattoo-stack,
+    .personal-page .project-block {
         aspect-ratio: auto;
-        padding-bottom: 0;
         height: auto;
-        min-height: 0;
+        overflow: visible;
+        background: transparent;
     }
 
-    .personal-page video,
-    .personal-page iframe {
-        aspect-ratio: auto;
-        object-fit: contain;
+    .personal-page video {
+        display: block;
+        width: 100%;
+        max-width: 100%;
         height: auto;
+        background: #000;
+        object-fit: contain;
+        aspect-ratio: auto;
         max-height: none;
     }
 
@@ -1286,585 +1107,94 @@ main p {
         gap: 16px;
     }
 
-}
-/* ==================================================
-   MOBILE — RESTORE CLEAN MEDIA BORDERS
-   (Without forcing aspect ratios)
-================================================== */
-
-@media (max-width: 768px) {
-
-    /* Direct media elements */
-    video,
-    iframe,
-    img {
-        border-radius: 10px;
-        display: block;
+    /* Hide custom play overlay on personal page mobile */
+    .personal-page .video-overlay {
+        display: none;
     }
-
-}
-/* ==================================================
-   PERSONAL — TIGHTEN PROJECT CAPTION SPACING
-================================================== */
-
-.personal-page .project-block {
-    gap: 4px; /* was 10px — reduce vertical stack */
 }
 
-.personal-page .tile-title {
-    margin-top: 6px;   /* was 10px */
-    margin-bottom: 0;
-    line-height: 1.3;
+/* ==============================
+   Thought Café
+============================== */
+.thought-cafe-page .main-content {
+    max-width: 2000px;
 }
 
-.personal-page .tile-caption {
-    margin-top: 2px;  /* keep subtle separation */
-    margin-bottom: 0;
-    line-height: 1.35;
-}
-
-/* Media inside has NO border */
-.video-crop video,
-.video-wrapper video,
-.video-wrapper iframe,
-.short-wrapper iframe,
-.personal-media video,
-.video-grid video {
-    border: none !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-}
-/* Media inside */
-video,
-iframe,
-img {
-    border: none !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    background: transparent !important;
-}
-
-/* Index: Work buttons header */
-.work-grid-title {
-    margin-top: 4rem;
-    margin-bottom: 1.5rem;
-    font-size: 1rem;
-    font-weight: 600;
-    color: #333;
-    text-align: center;
-    letter-spacing: 0.02em;
-}
-
-
-/* Index: Work buttons header */
-.work-grid-title {
-    margin-top: 4rem;       /* reduced from 6rem */
-    margin-bottom: 1.5rem; /* space before grid */
-    font-size: 1rem;
-    font-weight: 600;
-    color: #333;
-    text-align: center;
-    letter-spacing: 0.02em;
-}
-
-/* Index page: align intro caption with demo reel */
-/* Index: match video container exactly */
-.video-figure + .text-block {
-    max-width: 900px;
-    width: 100%;
-    margin: 0 auto;
-    padding-top: 0px; /* optional: tiny breathing room */
-}
-
-/* Index: stop flex centering from causing floaty spacing */
-.video-figure,
-.video-figure + .text-block {
+.thought-cafe-page .shorts-section {
+    max-width: none;
     align-self: stretch;
 }
-/* Crash Course + Further Study: tighten caption under video grids */
-.crash-course-page .video-grid,
-.crash-course-page .video-grid--large,
-.further-study-page .video-grid,
-.further-study-page .video-grid--large {
-    margin-bottom: 0px; /* adjust: 0–12px to taste */
+
+.thought-cafe-page .shorts-section .video-grid {
+    max-width: none;
+    margin: 12px 0 0 0;
 }
-@keyframes oceanWave {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    60% {
-        opacity: 1;
-        transform: translateY(-5px); /* crest */
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-/* ==================================================
-   INDEX — WORK BUTTON GRID (FINAL CLEAN SYSTEM)
-================================================== */
-
-/* Grid container */
-.work-grid {
-    display: flex;
-    flex-wrap: wrap;
-
-    justify-content: center; /* center incomplete rows */
-
-    gap: 24px;
-
-    max-width: 900px;
-    margin: 0 auto 3rem;
-    padding: 0 12px;
-}
-
-
-/* Individual button */
-.work-btn {
-    /* 4 per row */
-    flex: 0 0 calc(25% - 24px);
-    max-width: 180px;
-
-    aspect-ratio: 1 / 1;
-
-    display: block;
-
-    border-radius: 50%;
-    overflow: hidden;
-
-    background: #000;
-
-    cursor: pointer;
-
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
-}
-
-
-/* Image inside button */
-.work-btn img {
+.thought-cafe-page .shorts-grid {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 12px;
+    max-width: none;
     width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    border-radius: 50%;
-
-    display: block;
+    margin-left: 0;
+    margin-right: 0;
 }
 
-
-/* =====================================
-   REMOVE WORK BUTTON OUTLINE / STROKE
-===================================== */
-
-.work-btn,
-.work-btn * {
-    outline: none !important;
-    border: none !important;
-}
-
-.work-btn:focus,
-.work-btn:focus-visible,
-.work-btn:active,
-.work-btn a:focus,
-.work-btn a:focus-visible,
-.work-btn a:active {
-    outline: none !important;
-    box-shadow: none !important;
-}
-/* ==================================================
-   INDEX — WORK BUTTON TRUE NEUTRAL STATE
-================================================== */
-
-/* Strip ALL inherited styling */
-.work-btn {
-    background: transparent !important;
-    border: none !important;
-    outline: none !important;
-    box-shadow: none !important;
-
-    border-radius: 50%;
-    overflow: hidden;
-
-    transform: none;
-
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-/* Kill browser focus rings */
-.work-btn:focus,
-.work-btn:focus-visible,
-.work-btn:active {
-    outline: none !important;
-    box-shadow: none !important;
-}
-
-
-/* Make sure image is the only visible thing */
-.work-btn img {
-    display: block;
-
+.thought-cafe-page .short-wrapper {
+    height: auto;
+    aspect-ratio: 9 / 16;
     width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    border: none !important;
-    box-shadow: none !important;
-    background: transparent !important;
 }
-/* =====================================
-   WORK BUTTON — FORCE SHADOW + SCALE
-===================================== */
-
-@media (hover: hover) {
-
-    .work-btn:hover {
-        transform: scale(1.06) !important;
-
-        box-shadow:
-            0 28px 55px rgba(0,0,0,0.1),
-            0 12px 22px rgba(0,0,0,0.1) !important;
-    }
-
+.thought-cafe-page .media-caption--above {
+    max-width: none;
+    margin-left: 0;
 }
-/* ==================================================
-   INDEX — WORK GRID MOBILE SIZE FIX
-================================================== */
 
-@media (max-width: 768px) {
-
-    .work-grid {
-        gap: 12px;           /* tighter spacing */
-        padding: 0 6px;      /* more usable width */
-    }
-
-    .work-btn {
-        flex: 0 0 calc(25% - 12px); /* still 4 per row */
-        max-width: none;          /* allow growth */
-    }
-
+.thought-cafe-page .media-caption {
+    max-width: none;
+    margin-left: 0;
+}
+.thought-cafe-page .shorts-section .video-grid {
+    margin-top: 0;
+}
+.thought-cafe-page .shorts-grid {
+    margin-top: 0;
 }
 /* ==============================
-   Index: Button Ocean Wave Entrance (Scalable)
+   When Adam Changes
 ============================== */
-
-.work-grid {
-    --wave-delay: 0.07s;
+.adam-page .main-content {
+    max-width: 1500px;
 }
 
-/* Base state */
-.work-btn {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: oceanWave 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+.adam-page .video-figure {
+    max-width: 1500px;
+    margin: 12px auto 0;
 }
 
-/* Automatic stagger (up to 15 items, easy to extend) */
-.work-btn:nth-child(1)  { animation-delay: calc(var(--wave-delay) * 1); }
-.work-btn:nth-child(2)  { animation-delay: calc(var(--wave-delay) * 2); }
-.work-btn:nth-child(3)  { animation-delay: calc(var(--wave-delay) * 3); }
-.work-btn:nth-child(4)  { animation-delay: calc(var(--wave-delay) * 4); }
-.work-btn:nth-child(5)  { animation-delay: calc(var(--wave-delay) * 5); }
-.work-btn:nth-child(6)  { animation-delay: calc(var(--wave-delay) * 6); }
-.work-btn:nth-child(7)  { animation-delay: calc(var(--wave-delay) * 7); }
-.work-btn:nth-child(8)  { animation-delay: calc(var(--wave-delay) * 8); }
-.work-btn:nth-child(9)  { animation-delay: calc(var(--wave-delay) * 9); }
-.work-btn:nth-child(10) { animation-delay: calc(var(--wave-delay) * 10); }
-.work-btn:nth-child(11) { animation-delay: calc(var(--wave-delay) * 11); }
-.work-btn:nth-child(12) { animation-delay: calc(var(--wave-delay) * 12); }
-.work-btn:nth-child(13) { animation-delay: calc(var(--wave-delay) * 13); }
-.work-btn:nth-child(14) { animation-delay: calc(var(--wave-delay) * 14); }
-.work-btn:nth-child(15) { animation-delay: calc(var(--wave-delay) * 15); }
-
-@keyframes oceanWave {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    60% {
-        opacity: 1;
-        transform: translateY(-5px); /* crest */
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-/* ==============================
-   Mobile Hamburger Menu
-============================== */
-
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 1.8rem;
-    cursor: pointer;
-    color: #333;
-    padding: 4px 0;
+.adam-page .image-row {
+    max-width: 1500px;
+    margin-top: 24px;
 }
 
-/* Mobile behavior */
-@media (max-width: 768px) {
-
-    .menu-toggle {
-        display: block;
-        margin-bottom: 12px;
-    }
-
-    /* Hide nav by default */
-    .sidebar nav {
-        display: none;
-        width: 100%;
-    }
-
-    /* Show when active */
-    .sidebar.open nav {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    /* Clean spacing */
-    .sidebar {
-        align-items: flex-start;
-    }
-}
-@media (max-width: 768px) {
-
-    .menu-toggle {
-        display: block;
-        font-size: 1.5rem;
-        background: none;
-        border: none;
-        cursor: pointer;
-    }
-
-    .sidebar nav {
-        display: none;
-    }
-
-    .sidebar.open nav {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-    }
-}
-@media (max-width: 768px) {
-
-    /* Always show Work submenu on mobile */
-    .work-items {
-        opacity: 1;
-        transform: none;
-        pointer-events: auto;
-    }
-
-}
-@media (max-width: 768px) {
-
-    .video-wrapper,
-    .video-grid video {
-        max-width: 100%;
-        height: auto;
-    }
-}
-/* ==============================
-   iOS VIDEO RENDER FIX (SAFE)
-============================== */
-
-@media (max-width: 768px) {
-
-    /* Only containers that hold videos */
-    .video-crop,
-    .video-wrapper,
-    .short-wrapper,
-    .personal-media {
-        background: #000;
-    }
-
-    /* Never affect captions / figures */
-    .video-figure,
-    .media-caption,
-    .index-caption,
-    .text-block {
-        background: transparent !important;
-    }
-
-}
-/* PERSONAL PAGE — MOBILE VIDEO LOCK (iOS Safe Mode) */
-@media (max-width: 768px) {
-
-    .personal-page .video-crop,
-    .personal-page .tattoo-stack,
-    .personal-page .project-block {
-        aspect-ratio: auto !important;
-        height: auto !important;
-        overflow: visible !important;
-        background: transparent !important;
-    }
-
-    /* Force videos to render natively (mobile) */
-    .personal-page video {
-        display: block !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        height: auto !important;
-
-        background: #000 !important;
-    }
-}
-/* ==============================
-   GLOBAL — NO VIDEO BORDERS (FINAL)
-============================== */
-
-video,
-iframe,
-.video-crop,
-.video-wrapper,
-.short-wrapper,
-.personal-media {
-    border: none !important;
-    outline: none !important;
-    box-shadow: none !important;
-    background: transparent !important;
-    border-radius: 0 !important;
-}
-video,
-iframe,
-.video-crop,
-.video-wrapper,
-.short-wrapper,
-.personal-media {
-    border: none !important;
-    outline: none !important;
-    box-shadow: none !important;
-    background: transparent !important;
-    border-radius: 0 !important;
-}
-/* Allow taps to reach video on mobile */
-@media (max-width: 768px) {
-  .video-overlay {
-    pointer-events: none;
-  }
-}
-/* Desktop only GPU fix */
-@media (min-width: 769px) {
-  video {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-  }
-}
-/* PERSONAL PAGE — Desktop video fit */
-@media (min-width: 769px) {
-
-    .personal-page video {
-        object-fit: contain;
-    }
-}
-/* =====================================
-   PERSONAL — MOBILE: SINGLE PLAY UI
-   Kill duplicate overlays
-===================================== */
-
-@media (max-width: 768px) {
-
-  /* Hide custom play overlay on mobile */
-  .personal-page .video-overlay {
-    display: none !important;
-  }
-}
-/* =====================================
-   PERSONAL — Fill Square Thumbnails
-===================================== */
-
-.personal-page .video-crop video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-/* PERSONAL — Mobile Native Video Fix */
-
-@media (max-width: 768px) {
-
-  .personal-page video {
+.adam-page .image-row img {
     width: 100%;
     height: auto;
+    max-height: none;
     object-fit: contain;
-    display: block;
-  }
-
-  /* Disable overlays */
-  .personal-page .video-overlay {
-    display: none !important;
-  }
-
 }
-
-/* Hide native controls ONLY on desktop */
-@media (min-width: 769px) {
-
-  video::-webkit-media-controls {
-    display: none !important;
-  }
-
-  video::-webkit-media-controls-panel {
-    display: none !important;
-  }
-
-  video::-webkit-media-controls-play-button {
-    display: none !important;
-  }
-
-  video::-webkit-media-controls-start-playback-button {
-    display: none !important;
-  }
-
-  video::-webkit-media-controls-timeline {
-    display: none !important;
-  }
-
+/* ==============================
+   Index — Demo Reel
+============================== */
+.video-figure--large {
+    max-width: 1500px;
 }
-/* =====================================
-   FURTHER STUDY — FULL WIDTH LIKE PERSONAL
-===================================== */
+@media (max-width: 768px) {
+    .dais-page .video-grid--dais .video-wrapper {
+        overflow: hidden !important;
+    }
 
-.further-study-page .main-content {
-    max-width: none;
-}
-
-.further-study-page .video-grid {
-    grid-template-columns: repeat(3, 1fr);
-    width: 100%;
-    max-width: none;
-    margin: 60px 0;
-}
-/* =====================================
-   FURTHER STUDY — Caption Align Left
-===================================== */
-
-.further-study-page .media-caption {
-    max-width: none;
-    margin: 0px 0 0 0;  /* remove auto centering */
-}
-/* =====================================
-   FURTHER STUDY — Tight Caption Spacing
-===================================== */
-
-.further-study-page .video-grid {
-    margin-bottom: 8px; /* reduce from 40px */
-}
-
-.further-study-page .media-caption {
-    margin-top: 8px;
+    .dais-page .video-grid--dais .video-wrapper video {
+        margin: 0 0 -5px 0 !important;
+        width: 100% !important;
+        height: calc(100% + 5px) !important;
+    }
 }
