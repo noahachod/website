@@ -4,26 +4,16 @@
     <meta charset="UTF-8">
     <title>Noah Achod</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Root-based CSS path -->
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-
 <aside class="sidebar">
-    <button class="menu-toggle" aria-label="Toggle menu">
-        ☰
-    </button>
-
-    <!-- Homepage link -->
+    <button class="menu-toggle" aria-label="Toggle menu">☰</button>
     <h1><a href="/">Noah Achod</a></h1>
-
     <nav class="nav">
         <a href="/about/">about</a>
-
         <div class="work">
             <span class="work-label">Work</span>
-
             <div class="work-items">
                 <a href="/crash-course/">Crash Course</a>
                 <a href="/dais/">Canadian Democracy @ Work</a>
@@ -36,69 +26,76 @@
         </div>
     </nav>
 </aside>
-
 <main>
     <h2 class="hi-animate">
         <span>H</span><span>i</span><span>!</span>
     </h2>
 
-<!-- Demo Reel -->
-<div class="video-figure video-figure--large">
-
-    <div class="video-wrapper">
-        <iframe src="https://player.vimeo.com/video/1151438222"
-                allow="autoplay; fullscreen; picture-in-picture"
-                allowfullscreen>
-        </iframe>
+    <!-- Demo Reel -->
+    <div class="video-figure video-figure--large">
+        <div class="video-wrapper">
+            <iframe src="https://player.vimeo.com/video/1151438222"
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    allowfullscreen>
+            </iframe>
+        </div>
+        <p class="media-caption index-caption">
+            Demo reel featuring work for Crash Course, SandboxAQ, Further Study, Canadian Democracy @ Work, and more.
+        </p>
     </div>
 
-    <p class="media-caption index-caption">
-        Demo reel featuring work for Crash Course, SandboxAQ, Further Study, Canadian Democracy @ Work, and more.
-    </p>
+    <!-- Work Video Grid -->
+    <h3 class="work-grid-title">Selected Projects</h3>
+    <div class="work-grid">
 
-</div>
+        <a href="/crash-course/" class="work-btn">
+            <video autoplay muted loop playsinline>
+                <source src="/vb/cc_vb2_1.mp4" type="video/mp4">
+            </video>
+        </a>
 
+        <a href="/dais/" class="work-btn">
+            <video autoplay muted loop playsinline>
+                <source src="/vb/dais_vb1_1.mp4" type="video/mp4">
+            </video>
+        </a>
 
-<!-- Work Buttons Grid -->
- <h3 class="work-grid-title">Selected Projects</h3>
-<div class="work-grid">
+        <a href="/when-adam-changes/" class="work-btn">
+            <video autoplay muted loop playsinline>
+                <source src="/vb/adam_vb_2.mp4" type="video/mp4">
+            </video>
+        </a>
 
-    <a href="/crash-course/" class="work-btn">
-        <img src="/button1.png" alt="Crash Course">
-    </a>
+        <a href="/sandboxaq/" class="work-btn">
+            <video autoplay muted loop playsinline>
+                <source src="/vb/saq_vb1_1.mp4" type="video/mp4">
+            </video>
+        </a>
 
-    <a href="/dais/" class="work-btn">
-        <img src="/button2.png" alt="Canadian Democracy @ Work">
-    </a>
+        <a href="/further-study/" class="work-btn">
+            <video autoplay muted loop playsinline>
+                <source src="/vb/fs_vb_2.mp4" type="video/mp4">
+            </video>
+        </a>
 
-    <a href="/when-adam-changes/" class="work-btn">
-        <img src="/button3.png" alt="When Adam Changes">
-    </a>
+        <a href="/thought-cafe/" class="work-btn">
+            <video autoplay muted loop playsinline>
+                <source src="/vb/tc_vb_1.mp4" type="video/mp4">
+            </video>
+        </a>
 
-    <a href="/sandboxaq/" class="work-btn">
-        <img src="/button4.png" alt="SandboxAQ">
-    </a>
+        <a href="/personal/" class="work-btn">
+            <video autoplay muted loop playsinline>
+                <source src="/vb/pu_vb_1.mp4" type="video/mp4">
+            </video>
+        </a>
 
-    <a href="/further-study/" class="work-btn">
-        <img src="/button5.png" alt="Further Study">
-    </a>
-
-    <a href="/thought-cafe/" class="work-btn">
-        <img src="/button6.png" alt="Thought Café">
-    </a>
-    <a href="/personal/" class="work-btn">
-    <img src="/button7.png" alt="Personal">
-</a>
-
-</div>
-
+    </div>
 </main>
-
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     const toggle = document.querySelector(".menu-toggle");
     const sidebar = document.querySelector(".sidebar");
-
     if (toggle && sidebar) {
         toggle.addEventListener("click", function () {
             sidebar.classList.toggle("open");
@@ -106,6 +103,5 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 </script>
-
 </body>
 </html>
