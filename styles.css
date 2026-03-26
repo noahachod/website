@@ -142,7 +142,7 @@ main {
 ============================== */
 
 main h2 {
-    font-size: 2em;
+    font-size: clamp(1.3rem, 4vw, 2em);
     font-style: italic;
     transform: scaleX(1) scaleY(2);
     display: inline-block;
