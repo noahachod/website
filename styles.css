@@ -27,7 +27,7 @@ body {
     width: 220px;
     height: 100vh;
     padding: 24px;
-    background-color: #f7f7f7;
+    background-color: #fff;
     display: flex;
     flex-direction: column;
     z-index: 1000;
@@ -68,7 +68,7 @@ body {
 }
 
 .nav a.active {
-    color: #000;
+    color: #5f9434;
     font-weight: 500;
 }
 
@@ -140,12 +140,15 @@ main {
 /* ==============================
    Typography
 ============================== */
+
 main h2 {
-    font-size: 1.25em;
-    margin-bottom: 12px;
+    font-size: 2em;
+    font-style: italic;
+    transform: scaleX(1) scaleY(2);
+    display: inline-block;
+    letter-spacing: -.05em;
     color: #333;
 }
-
 main h3 {
     font-size: 1em;
     font-weight: 500;
@@ -158,9 +161,20 @@ main p {
 }
 
 .work-page .text-block {
-    max-width: 540px;
+    max-width: 720px;
 }
-
+.sidebar h1 {
+    letter-spacing: -0.1em; /* tighter */
+}
+.sidebar h1 {
+    transform: scaleX(1.5) scaleY(1);
+    transform-origin: left;
+    display: inline-block;
+}
+.nav a,
+.work-label {
+    letter-spacing: -0.05em;
+}
 /* ==============================
    About page
 ============================== */
@@ -383,26 +397,6 @@ main p {
     max-height: 90vh;
     border-radius: 12px;
     background: #000;
-}
-
-/* ==============================
-   Hi animation
-============================== */
-.hi-animate span {
-    display: inline-block;
-    opacity: 0;
-    transform: translate(5px, 15px);
-    animation: hiWave 0.33s cubic-bezier(0, 0, 0.58, 1) forwards;
-}
-
-.hi-animate span:nth-child(1) { animation-delay: 0s; }
-.hi-animate span:nth-child(2) { animation-delay: 0.06s; }
-.hi-animate span:nth-child(3) { animation-delay: 0.12s; }
-
-@keyframes hiWave {
-    0%   { opacity: 0; transform: translate(5px, 15px); }
-    70%  { opacity: 1; transform: translate(0, -4px); }
-    100% { opacity: 1; transform: translate(0, 0); }
 }
 
 /* ==============================
@@ -914,6 +908,12 @@ img,
         padding: 16px 20px;
         align-items: flex-start;
     }
+    .sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+}
 
     main {
         margin-left: 0;
@@ -925,12 +925,25 @@ img,
         margin-top: 32px;
     }
 
-    /* Hamburger */
-    .menu-toggle {
-        display: block;
-        margin-bottom: 12px;
-    }
+.menu-toggle {
+    display: block;
+    margin-bottom: 0;
+    line-height: 1;
+}
+.sidebar-header .menu-toggle {
+    display: block;
+    margin: 0;
+    line-height: 1;
+    padding: 0;
+}
 
+.sidebar-header h1 {
+    margin: 0;
+    line-height: 1;
+}
+.sidebar nav {
+    margin-top: 16px;
+}
     .sidebar nav {
         display: none;
         width: 100%;
