@@ -558,13 +558,24 @@ main p {
     margin-right: auto;
 }
 
-.sandbox-page .sandbox-testimonial .media-caption--above {
-    max-width: 900px;
-}
 .sandbox-page .video-figure {
     margin-top: 0;
 }
+.sandbox-page .sandbox-testimonial .video-grid--testimonials {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    width: 100%;
+    max-width: 2000px;
+    margin: 0 auto;
+}
 
+.sandbox-page .sandbox-testimonial .video-grid--testimonials .video-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    padding-bottom: 0;
+    height: auto;
+}
 .sandbox-page .video-grid--sandbox {
     margin-top: 0;
 }
