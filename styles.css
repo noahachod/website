@@ -1222,3 +1222,21 @@ img,
         height: calc(100% + 5px) !important;
     }
 }
+.understanding-snps-page .main-content {
+    max-width: 2000px;
+}
+
+.understanding-snps-page .shorts-section {
+    max-width: none;
+    align-self: stretch;
+}
+
+.understanding-snps-page .video-grid {
+    max-width: none;
+    margin: 12px 0 0 0;
+}
+
+.understanding-snps-page .media-caption {
+    max-width: none;
+    margin-left: 0;
+}
