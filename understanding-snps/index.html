@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Understanding SNPs — Noah Achod</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="work-page understanding-snps-page">
+<aside class="sidebar">
+<div class="sidebar-header">
+    <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+    <h1><a href="/">Noah Achod</a></h1>
+</div>
+    <nav class="nav">
+        <a href="/about/">about</a>
+        <div class="work">
+            <span class="work-label">Work</span>
+            <div class="work-items">
+                <a href="/crash-course/">Crash Course</a>
+                <a href="/dais/">Canadian Democracy @ Work</a>
+                <a href="/when-adam-changes/">When Adam Changes</a>
+                <a href="/sandboxaq/">SandboxAQ</a>
+                <a href="/further-study/">Further Study</a>
+                <a href="/understanding-snps/" class="active">Understanding SNPs</a>
+                <a href="/thought-cafe/">Thought Café</a>
+                <a href="/personal/">Personal</a>
+            </div>
+        </div>
+    </nav>
+</aside>
+<main>
+    <h2>Understanding SNPs</h2>
+    <div class="main-content">
+        <div class="text-block">
+            <p>Working with the Howard Hughes Medical Institute, I contributed animation to a series of educational videos titled <a href="https://www.biointeractive.org/classroom-resources/understanding-snps"><i>Understanding SNPs.</i></a> </p>
+            <p>The videos explore the what and why of single nucleotide polymorphisms (SNPs). </p>
+        </div>
+        <div class="shorts-section">
+            <div class="video-grid">
+                <div class="video-wrapper">
+                    <iframe src="https://player.vimeo.com/video/1188184974?h=f7aa867fa1"
+                            allow="autoplay; fullscreen; picture-in-picture"
+                            allowfullscreen></iframe>
+                </div>
+                <div class="video-wrapper">
+                    <iframe src="https://player.vimeo.com/video/1188185360?h=23084f3802"
+                            allow="autoplay; fullscreen; picture-in-picture"
+                            allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.querySelector(".menu-toggle");
+    const sidebar = document.querySelector(".sidebar");
+    if (toggle && sidebar) {
+        toggle.addEventListener("click", function () {
+            sidebar.classList.toggle("open");
+        });
+    }
+});
+</script>
+</body>
+</html>
