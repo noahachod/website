@@ -12,22 +12,34 @@
     <button class="menu-toggle" aria-label="Toggle menu">☰</button>
     <h1><a href="/">Noah Achod</a></h1>
 </div>
-    <nav class="nav">
-        <a href="/about/">about</a>
-        <div class="work">
-            <span class="work-label">Work</span>
-            <div class="work-items">
-                <a href="/crash-course/">Crash Course</a>
-                <a href="/dais/">Canadian Democracy @ Work</a>
-                <a href="/when-adam-changes/">When Adam Changes</a>
-                <a href="/sandboxaq/">SandboxAQ</a>
-                <a href="/further-study/">Further Study</a>
-                <a href="/understanding-snps/" class="active">Understanding SNPs</a>
-                <a href="/thought-cafe/">Thought Café</a>
-                <a href="/personal/">Personal</a>
-            </div>
+   <nav class="nav">
+
+    <a href="/about/">about</a>
+
+    <div class="work">
+        <span class="work-label">Work</span>
+
+        <div class="work-items">
+            <a href="/crash-course/">Crash Course</a>
+            <a href="/dais/">Canadian Democracy @ Work</a>
+            <a href="/when-adam-changes/">When Adam Changes</a>
+            <a href="/sandboxaq/">SandboxAQ</a>
+            <a href="/further-study/">Further Study</a>
+            <a href="/understanding-snps/">Understanding SNPs</a>
+            <a href="/thought-cafe/">Thought Café</a>
         </div>
-    </nav>
+    </div>
+
+    <div class="play">
+        <span class="play-label">Play</span>
+
+        <div class="play-items">
+           <a href="/motion/">motion</a>
+           <a href="/images/">images</a>
+        </div>
+    </div>
+
+</nav>
 </aside>
 <main>
     <h2>Understanding SNPs</h2>
@@ -65,3 +77,10 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 </body>
 </html>
+<script>
+document.querySelectorAll('.nav a').forEach(a => {
+    if (a.href === window.location.href) {
+        a.classList.add('active');
+    }
+});
+</script>
