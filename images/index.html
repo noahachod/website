@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Images — Noah Achod</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Neuton&display=swap" rel="stylesheet">
+</head>
+<body class="personal-page images-page">
+
+<!-- ================= Sidebar ================= -->
+<aside class="sidebar">
+<div class="sidebar-header">
+    <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+    <h1><a href="/">Noah Achod</a></h1>
+</div>
+  <nav class="nav">
+    <a href="/about/">about</a>
+    <div class="work">
+        <span class="work-label">Work</span>
+        <div class="work-items">
+            <a href="/crash-course/">Crash Course</a>
+            <a href="/dais/">Canadian Democracy @ Work</a>
+            <a href="/when-adam-changes/">When Adam Changes</a>
+            <a href="/sandboxaq/">SandboxAQ</a>
+            <a href="/further-study/">Further Study</a>
+            <a href="/understanding-snps/">Understanding SNPs</a>
+            <a href="/thought-cafe/">Thought Café</a>
+        </div>
+    </div>
+    <div class="play">
+        <span class="play-label">Play</span>
+        <div class="play-items">
+            <a href="/motion/">motion</a>
+            <a href="/images/">images</a>
+        </div>
+    </div>
+</nav>
+</aside>
+
+<!-- ================= Main ================= -->
+<main>
+
+<div class="main-content">
+  <div class="text-block">
+    <p>Here's a mix of personal and commissioned drawings :P</p>
+  </div>
+</div>
+
+<div class="image-gallery-grid">
+    <div class="image-tile lightbox-trigger" data-src="/play_images/db_rs.jpg">
+        <img src="/play_images/db_rs.jpg" alt="">
+    </div>
+    <div class="image-tile lightbox-trigger" data-src="/play_images/jod_rs.jpg">
+        <img src="/play_images/jod_rs.jpg" alt="">
+    </div>
+    <div class="image-tile lightbox-trigger" data-src="/play_images/alwaysyou_rs.jpg">
+        <img src="/play_images/alwaysyou_rs.jpg" alt="">
+    </div>
+    <div class="image-tile lightbox-trigger" data-src="/play_images/dragon_rs.jpg">
+        <img src="/play_images/dragon_rs.jpg" alt="">
+    </div>
+    <div class="image-tile lightbox-trigger" data-src="/play_images/cats_rs.jpg">
+        <img src="/play_images/cats_rs.jpg" alt="">
+    </div>
+    <div class="image-tile lightbox-trigger" data-src="/play_images/ben_rs.jpg">
+        <img src="/play_images/ben_rs.jpg" alt="">
+    </div>
+    <div class="image-tile lightbox-trigger" data-src="/play_images/icecubes_rs.jpg">
+        <img src="/play_images/icecubes_rs.jpg" alt="">
+    </div>
+    <div class="image-tile lightbox-trigger" data-src="/play_images/late_rs.jpg">
+        <img src="/play_images/late_rs.jpg" alt="">
+    </div>
+    <div class="image-tile lightbox-trigger" data-src="/play_images/tattoo_rs.jpg">
+        <img src="/play_images/tattoo_rs.jpg" alt="">
+    </div>
+</div>
+
+<!-- Lightbox -->
+<div class="image-lightbox" id="imageLightbox">
+    <img id="imageLightboxImg" alt="">
+</div>
+
+</main>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.querySelector(".menu-toggle");
+    const sidebar = document.querySelector(".sidebar");
+    if (toggle && sidebar) {
+        toggle.addEventListener("click", function () {
+            sidebar.classList.toggle("open");
+        });
+    }
+    const grid = document.querySelector(".image-gallery-grid");
+const tiles = Array.from(grid.querySelectorAll(".image-tile"));
+tiles.sort(() => Math.random() - 0.5);
+tiles.forEach(tile => grid.appendChild(tile));
+    const triggers = document.querySelectorAll(".lightbox-trigger");
+    const lightbox = document.getElementById("imageLightbox");
+    const img = document.getElementById("imageLightboxImg");
+
+    triggers.forEach(tile => {
+        tile.addEventListener("click", function () {
+            img.src = this.dataset.src;
+            lightbox.classList.add("active");
+        });
+    });
+
+    lightbox.addEventListener("click", function () {
+        lightbox.classList.remove("active");
+        img.src = "";
+    });
+
+    document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+            lightbox.classList.remove("active");
+            img.src = "";
+        }
+    });
+});
+
+document.querySelectorAll('.nav a').forEach(a => {
+    if (a.href === window.location.href) {
+        a.classList.add('active');
+    }
+});
+</script>
+
+
+</body>
+</html>
