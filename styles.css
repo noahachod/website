@@ -62,7 +62,8 @@ body {
 }
 
 .nav a:hover,
-.work-label:hover {
+.work-label:hover,
+.play-label:hover {
     color: #000;
     transform: scale(1.05);
 }
@@ -74,7 +75,8 @@ body {
 
 /* Lowercase nav items */
 .nav a[href="/about/"],
-.work-label {
+.work-label,
+.play-label {
     text-transform: lowercase;
 }
 
@@ -86,20 +88,70 @@ body {
     flex-direction: column;
     gap: 8px;
     padding-left: 16px;
-    margin-top: 8px;
+    margin-top: 0;
+    max-height: 0;
+    overflow: hidden;
     opacity: 0;
     transform: translateY(-4px);
     pointer-events: none;
-    transition: opacity 0.25s ease, transform 0.25s ease;
+    transition: opacity 0.25s ease, transform 0.25s ease, max-height 0.25s ease, margin-top 0.25s ease;
 }
 
+.work:hover .work-items,
+.work-page .work-items {
+    max-height: 300px;
+    margin-top: 8px;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
 .work:hover .work-items,
 .work-page .work-items {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
 }
+/* ==============================
+   Play submenu — animated dropdown
+   (mirrors .work-items behaviour)
+============================== */
+.play-label {
+    display: inline-block;
+    text-decoration: none;
+    color: #555;
+    cursor: pointer;
+    letter-spacing: -0.05em;
+    transition: color 0.25s ease, transform 0.2s ease;
+}
 
+.play-label:hover {
+    color: #000;
+    transform: scale(1.05);
+}
+
+.play-items {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-left: 16px;
+    margin-top: 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-4px);
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease, max-height 0.25s ease, margin-top 0.25s ease;
+}
+
+.play:hover .play-items,
+.motion-page .play-items,
+.images-page .play-items {
+    max-height: 100px;
+    margin-top: 8px;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
 /* ==============================
    Main layout
 ============================== */
@@ -169,7 +221,8 @@ main p {
     display: inline-block;
 }
 .nav a,
-.work-label {
+.work-label,
+.play-label {
     letter-spacing: -0.05em;
 }
 /* ==============================
@@ -964,13 +1017,14 @@ img,
     }
 
     /* Always show work submenu */
-    .work-items {
-        opacity: 1;
-        transform: none;
-        pointer-events: auto;
-        flex-wrap: wrap;
-        gap: 8px 16px;
-    }
+    .work-items,
+.play-items {
+    max-height: 500px !important;
+    margin-top: 8px !important;
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: auto;
+}
 
     /* Force all grids to single column */
     .video-gallery-grid,
@@ -1236,4 +1290,81 @@ img,
 .understanding-snps-page .media-caption {
     max-width: none;
     margin-left: 0;
+}
+/* ==============================
+   Images page — drawing grid
+============================== */
+.image-gallery-grid {
+    width: 100%;
+    margin: 60px 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    padding: 0 20px;
+}
+
+.image-tile {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    cursor: pointer;
+    background: #f0f0f0;
+}
+
+.image-tile img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease;
+}
+
+.image-tile:hover img {
+    transform: scale(1.05);
+}
+
+.image-lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+    z-index: 2000;
+    cursor: pointer;
+}
+
+.image-lightbox.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.image-lightbox img {
+    max-width: 90vw !important;
+    max-height: 90vh !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+    .image-gallery-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px;
+        padding: 0;
+    }
+
+    .image-tile {
+        aspect-ratio: auto;
+        border-radius: 0;
+    }
+
+    .image-tile img {
+        height: auto !important;
+        aspect-ratio: auto;
+        object-fit: contain;
+    }
 }
