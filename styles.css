@@ -1923,6 +1923,21 @@ img,
     justify-content: flex-start;
     align-items: stretch;
     padding: 132px max(52px, calc((100vw - 2000px) / 2 + 12px)) 40px;
+    position: relative;
+}
+
+.menu-close {
+    position: absolute;
+    top: 16px;
+    right: 26px;
+    color: #333;
+    font-size: 2rem;
+    line-height: 1;
+    text-decoration: none;
+}
+
+.menu-close:hover {
+    color: #000;
 }
 
 .menu-page-links {
@@ -1960,5 +1975,10 @@ img,
 
     .menu-page main {
         padding: 88px 26px 32px;
+    }
+
+    .menu-close {
+        top: 16px;
+        right: 26px;
     }
 }
