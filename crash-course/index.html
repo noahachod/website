@@ -4,63 +4,88 @@
     <meta charset="UTF-8">
     <title>Crash Course — Noah Achod</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Neuton&display=swap" rel="stylesheet">
+    <script src="/sidebar.js" defer></script>
 </head>
 
 <body class="work-page crash-course-page">
 
-<aside class="sidebar">
-<div class="sidebar-header">
-    <button class="menu-toggle" aria-label="Toggle menu">☰</button>
-    <h1><a href="/">Noah Achod</a></h1>
-</div>
-
-    <nav class="nav">
-
-    <a href="/about/">about</a>
-
-    <div class="work">
-        <span class="work-label">Work</span>
-
-        <div class="work-items">
-            <a href="/crash-course/">Crash Course</a>
-            <a href="/dais/">Canadian Democracy @ Work</a>
-            <a href="/when-adam-changes/">When Adam Changes</a>
-            <a href="/sandboxaq/">SandboxAQ</a>
-            <a href="/further-study/">Further Study</a>
-            <a href="/understanding-snps/">Understanding SNPs</a>
-            <a href="/thought-cafe/">Thought Café</a>
-        </div>
-    </div>
-
-    <div class="play">
-        <span class="play-label">Play</span>
-
-        <div class="play-items">
-            <a href="/motion/">motion</a>
-            <a href="/images/">images</a>
-        </div>
-    </div>
-
-</nav>
-</aside>
+<div id="site-sidebar"></div>
 
 <main>
     <h2>Crash Course</h2>
 
-    <div class="main-content">
-        <div class="text-block">
-            <p>
-                Crash Course is a giant in the world of educational content. I had the opportunity to work as an animator on several series.
-            </p>
-            <p>
-                I worked as a lead animator on <em>Crash Course Religions</em> and <em>Study Hall: Modern World History,</em> animating episodes, handling deliveries, and occasionally annotating scripts.
-            </p>
-        </div>
+    <div class="video-grid video-grid--large crash-course-clips crash-course-feature-grid">
+        <div class="video-wrapper"><video src="/2.0_videos/CC_Compressed/CC_016_web.mp4" autoplay muted loop playsinline preload="none" aria-label="Crash Course video 016"></video></div>
+        <div class="video-wrapper"><video src="/2.0_videos/CC_Compressed/CC_002_web.mp4" autoplay muted loop playsinline preload="none" aria-label="Crash Course video 002"></video></div>
+    </div>
 
-        <!-- LARGE 2x2 VIDEO GRID -->
-        <div class="video-grid video-grid--large">
+    <div class="main-content">
+        <section class="crash-course-section">
+            <div class="text-block crash-course-section-copy">
+                <p>Crash Course is a giant in the world of educational content. I had the opportunity to contribute motion design to several series. I led animation on <a href="https://www.youtube.com/watch?v=O77IFewBxcg&amp;list=PL8dPuuaLjXtNDV8GjzfScxgEe4OgIlh3c" target="_blank" rel="noopener noreferrer"><em>Crash Course Religions</em></a> and <a href="https://www.youtube.com/watch?v=ymKnIuT7phM&amp;list=PLID58IQe16nGgx0__R3MEiDDSBGgicOjG" target="_blank" rel="noopener noreferrer"><em>Study Hall: Modern World History</em></a>, animating episodes, handling deliveries, and occasionally annotating scripts.</p>
+            </div>
+            <div class="video-grid crash-course-grid">
+                <div class="video-wrapper"><video src="/2.0_videos/CC_Compressed/CC_010_web.mp4" autoplay muted loop playsinline preload="none" aria-label="Crash Course video 010"></video></div>
+                <div class="video-wrapper"><video src="/2.0_videos/CC_Compressed/CC_012_web.mp4" autoplay muted loop playsinline preload="none" aria-label="Crash Course video 012"></video></div>
+                <div class="video-wrapper"><video src="/2.0_videos/CC_Compressed/CC_022_web.mp4" autoplay muted loop playsinline preload="none" aria-label="Crash Course video 022"></video></div>
+                <div class="video-wrapper"><video src="/2.0_videos/CC_Compressed/CC_013_web.mp4" autoplay muted loop playsinline preload="none" aria-label="Crash Course video 013"></video></div>
+            </div>
+        </section>
+
+        <section class="crash-course-section crash-course-behind-scenes">
+            <h3 class="crash-course-section-heading">Behind the Scenes</h3>
+            <div class="video-grid crash-course-grid crash-course-grid--three crash-course-character-grid">
+                <div class="video-wrapper"><video src="/2.0_videos/CCWIP_Compressed/CCWIP_002_web.mp4" autoplay muted loop playsinline preload="none" aria-label="Crash Course character animation work in progress 002"></video></div>
+                <div class="video-wrapper"><video src="/2.0_videos/CCWIP_Compressed/CCWIP_003_web.mp4" autoplay muted loop playsinline preload="none" aria-label="Crash Course character animation work in progress 003"></video></div>
+                <div class="video-wrapper"><video src="/2.0_videos/CCWIP_Compressed/CCWIP_004_web.mp4" autoplay muted loop playsinline preload="none" aria-label="Crash Course character animation work in progress 004"></video></div>
+                <div class="video-wrapper"><video src="/2.0_videos/CCWIP_Compressed/CCWIP_005_web.mp4" autoplay muted loop playsinline preload="none" aria-label="Crash Course character animation work in progress 005"></video></div>
+                <div class="video-wrapper"><video src="/2.0_videos/CCWIP_Compressed/CCWIP_006_web.mp4" autoplay muted loop playsinline preload="none" aria-label="Crash Course character animation work in progress 006"></video></div>
+                <div class="video-wrapper"><video src="/2.0_videos/CCWIP_Compressed/CCWIP_007_web.mp4" autoplay muted loop playsinline preload="none" aria-label="Crash Course character animation work in progress 007"></video></div>
+            </div>
+            <p class="media-caption crash-course-characters-caption">I've animated hundreds of characters across different Crash Course series. Characters are rigged with a combination of puppet pins, in-house plugins, and Rubberhose.</p>
+            <div class="video-grid crash-course-grid crash-course-grid--three">
+                <div class="video-wrapper"><video src="/2.0_videos/CC_Compressed/CC_011_web.mp4" autoplay muted loop playsinline preload="none" aria-label="Crash Course video 011"></video></div>
+                <div class="video-wrapper"><video src="/2.0_videos/CC_Compressed/CC_014_web.mp4" autoplay muted loop playsinline preload="none" aria-label="Crash Course video 014"></video></div>
+                <div class="video-wrapper"><video src="/2.0_videos/CC_Compressed/CC_015_web.mp4" autoplay muted loop playsinline preload="none" aria-label="Crash Course video 015"></video></div>
+                <div class="video-wrapper"><video src="/2.0_videos/CC_Compressed/CC_021_web.mp4" autoplay muted loop playsinline preload="none" aria-label="Crash Course video 021"></video></div>
+                <div class="video-wrapper"><video src="/2.0_videos/CC_Compressed/CC_023_web.mp4" autoplay muted loop playsinline preload="none" aria-label="Crash Course video 023"></video></div>
+                <div class="video-wrapper"><video src="/2.0_videos/CC_Compressed/CC_025_web.mp4" autoplay muted loop playsinline preload="none" aria-label="Crash Course video 025"></video></div>
+            </div>
+            <p class="media-caption">Full-screen type moments, lower thirds, text boxes, and more have been automated using in-house plugins.</p>
+        </section>
+
+        <section class="crash-course-section">
+            <h3 class="crash-course-section-heading">Informative and Accurate</h3>
+            <div class="text-block crash-course-section-copy">
+                <p>Every Crash Course series is educational. In addition to the series I've led, I've contributed motion to Botany, Biology, Psychology, and more. When animating an episode, every choice is informed by how well it conveys the necessary information.</p>
+                <p>Period-correct maps, clothing, dance, and historical dates are all handled with extreme precision and care.</p>
+            </div>
+            <div class="video-grid crash-course-grid">
+                <div class="video-wrapper"><video src="/2.0_videos/CC_Compressed/CC_004_web.mp4" autoplay muted loop playsinline preload="none" aria-label="Crash Course video 004"></video></div>
+                <div class="video-wrapper"><video src="/2.0_videos/CC_Compressed/CC_005_web.mp4" autoplay muted loop playsinline preload="none" aria-label="Crash Course video 005"></video></div>
+                <div class="video-wrapper"><video src="/2.0_videos/CC_Compressed/CC_009_web.mp4" autoplay muted loop playsinline preload="none" aria-label="Crash Course video 009"></video></div>
+                <div class="video-wrapper"><video src="/2.0_videos/CC_Compressed/CC_001_web.mp4" autoplay muted loop playsinline preload="none" aria-label="Crash Course video 001"></video></div>
+            </div>
+        </section>
+
+        <section class="crash-course-section">
+            <h3 class="crash-course-section-heading">...Fun!</h3>
+            <p class="crash-course-section-copy">With that being said, my goal is to create work that is playful and entertaining.</p>
+            <div class="video-grid crash-course-grid">
+                <div class="video-wrapper"><video src="/2.0_videos/CC_Compressed/CC_017_web.mp4" autoplay muted loop playsinline preload="none" aria-label="Crash Course video 017"></video></div>
+                <div class="video-wrapper"><video src="/2.0_videos/CC_Compressed/CC_018_web.mp4" autoplay muted loop playsinline preload="none" aria-label="Crash Course video 018"></video></div>
+                <div class="video-wrapper"><video src="/2.0_videos/CC_Compressed/CC_020_web.mp4" autoplay muted loop playsinline preload="none" aria-label="Crash Course video 020"></video></div>
+                <div class="video-wrapper"><video src="/2.0_videos/CC_Compressed/CC_007_web.mp4" autoplay muted loop playsinline preload="none" aria-label="Crash Course video 007"></video></div>
+            </div>
+        </section>
+
+        <section class="crash-course-section crash-course-youtube">
+            <div class="video-grid video-grid--large">
             <div class="video-wrapper">
                 <iframe src="https://www.youtube.com/embed/e8FLcGEXsO0" allowfullscreen></iframe>
             </div>
@@ -81,28 +106,10 @@
         <p class="media-caption">
             A selection of some of my favourite Crash Course episodes I've worked on
         </p>
+        </section>
     </div>
 </main>
 
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const toggle = document.querySelector(".menu-toggle");
-    const sidebar = document.querySelector(".sidebar");
-
-    if (toggle && sidebar) {
-        toggle.addEventListener("click", function () {
-            sidebar.classList.toggle("open");
-        });
-    }
-});
-</script>
 </body>
 </html>
-<script>
-document.querySelectorAll('.nav a').forEach(a => {
-    if (a.href === window.location.href) {
-        a.classList.add('active');
-    }
-});
-</script>

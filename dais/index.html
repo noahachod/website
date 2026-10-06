@@ -4,47 +4,17 @@
     <meta charset="UTF-8">
     <title>DAIS — Noah Achod</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Root-based CSS -->
     <link rel="stylesheet" href="/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Neuton&display=swap" rel="stylesheet">
+    <script src="/sidebar.js" defer></script>
 </head>
 <body class="work-page dais-page">
-    <aside class="sidebar">
-<div class="sidebar-header">
-    <button class="menu-toggle" aria-label="Toggle menu">☰</button>
-    <h1><a href="/">Noah Achod</a></h1>
-</div>
-
-        <nav class="nav">
-
-    <a href="/about/">about</a>
-
-    <div class="work">
-        <span class="work-label">Work</span>
-
-        <div class="work-items">
-            <a href="/crash-course/">Crash Course</a>
-            <a href="/dais/">Canadian Democracy @ Work</a>
-            <a href="/when-adam-changes/">When Adam Changes</a>
-            <a href="/sandboxaq/">SandboxAQ</a>
-            <a href="/further-study/">Further Study</a>
-            <a href="/understanding-snps/">Understanding SNPs</a>
-            <a href="/thought-cafe/">Thought Café</a>
-        </div>
-    </div>
-
-    <div class="play">
-        <span class="play-label">Play</span>
-
-        <div class="play-items">
-            <a href="/motion/">motion</a>
-            <a href="/images/">images</a>
-        </div>
-    </div>
-
-</nav>
-    </aside>
+    <div id="site-sidebar"></div>
 
 <main>
   <div class="main-content">
@@ -52,10 +22,6 @@
     <div class="text-block">
       <p>
         Created by The DAIS at Toronto Metropolitan University, <em>Canadian Democracy @ Work</em> is a series which delivers civic and digital skills to the Canadian public.
-      </p>
-      <p>
-        I handled animation on several modules, and created unique
-        English and French versions of each module.
       </p>
       <p>
         Watch the modules
@@ -86,27 +52,45 @@
         </video>
       </div>
     </div>
+    <section class="dais-wip-section">
+      <h3>Behind the Scenes</h3>
+      <div class="dais-wip-copy">
+        <p>I handled animation on several modules, and created unique English and French versions of each module.</p>
+      </div>
+      <div class="dais-wip-gallery">
+        <div class="dais-wip-feature-column">
+          <video class="dais-wip-feature" data-src="/2.0_videos/CDAWWIP_Compressed/CDAW_WIP_007_web.mp4" autoplay muted loop playsinline preload="none" aria-label="Canadian Democracy at Work behind-the-scenes video"></video>
+          <div class="dais-wip-caption">
+            <p>Characters are rigged with a combination of shape layers, Rubberhose, and in-house plugins.</p>
+          </div>
+        </div>
+        <div class="dais-wip-grid">
+          <video data-src="/2.0_videos/CDAWWIP_Compressed/CDAWWIP_0011_web.mp4" autoplay muted loop playsinline preload="none" aria-label="Canadian Democracy at Work animation process clip"></video>
+          <video data-src="/2.0_videos/CDAWWIP_Compressed/CDAWWIP_0031_web.mp4" autoplay muted loop playsinline preload="none" aria-label="Canadian Democracy at Work animation process clip"></video>
+          <video data-src="/2.0_videos/CDAWWIP_Compressed/CDAW_WIP0051_web.mp4" autoplay muted loop playsinline preload="none" aria-label="Canadian Democracy at Work animation process clip"></video>
+          <video data-src="/2.0_videos/CDAWWIP_Compressed/CDAWWIP_0041_web.mp4" autoplay muted loop playsinline preload="none" aria-label="Canadian Democracy at Work animation process clip"></video>
+        </div>
+      </div>
+    </section>
   </div>
 </main>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const toggle = document.querySelector(".menu-toggle");
-    const sidebar = document.querySelector(".sidebar");
+  const lazyDaisVideos = document.querySelectorAll(".dais-wip-section video[data-src]");
+  const daisVideoObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const video = entry.target;
+        video.src = video.dataset.src;
+        video.load();
+        video.play().catch(() => {});
+        observer.unobserve(video);
+      }
+    });
+  }, { rootMargin: "0px" });
 
-    if (toggle && sidebar) {
-        toggle.addEventListener("click", function () {
-            sidebar.classList.toggle("open");
-        });
-    }
-});
+  lazyDaisVideos.forEach(video => daisVideoObserver.observe(video));
 </script>
+
 </body>
 </html>
-<script>
-document.querySelectorAll('.nav a').forEach(a => {
-    if (a.href === window.location.href) {
-        a.classList.add('active');
-    }
-});
-</script>

@@ -4,43 +4,15 @@
     <meta charset="UTF-8">
     <title>Noah Achod</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles.css">
+    <script src="/sidebar.js" defer></script>
 </head>
 <body>
-<aside class="sidebar">
-<div class="sidebar-header">
-    <button class="menu-toggle" aria-label="Toggle menu">☰</button>
-    <h1><a href="/">Noah Achod</a></h1>
-</div>
-    <nav class="nav">
-
-    <a href="/about/">about</a>
-
-    <div class="work">
-        <span class="work-label">Work</span>
-
-        <div class="work-items">
-            <a href="/crash-course/">Crash Course</a>
-            <a href="/dais/">Canadian Democracy @ Work</a>
-            <a href="/when-adam-changes/">When Adam Changes</a>
-            <a href="/sandboxaq/">SandboxAQ</a>
-            <a href="/further-study/">Further Study</a>
-            <a href="/understanding-snps/">Understanding SNPs</a>
-            <a href="/thought-cafe/">Thought Café</a>
-        </div>
-    </div>
-
-    <div class="play">
-        <span class="play-label">Play</span>
-
-        <div class="play-items">
-           <a href="/motion/">motion</a>
-           <a href="/images/">images</a>
-        </div>
-    </div>
-
-</nav>
-</aside>
+<div id="site-sidebar"></div>
 <main>
     <div class="video-figure video-figure--large">
         <div class="video-wrapper">
@@ -50,67 +22,44 @@
             </iframe>
         </div>
     </div>
-    <h3 class="work-grid-title">Selected Projects</h3>
     <div class="work-grid">
-        <a href="/crash-course/" class="work-btn">
+        <a href="/further-study/" class="work-btn">
             <video autoplay muted loop playsinline>
-                <source src="/vb/cc_vb2_1.mp4" type="video/mp4">
+                <source src="/vb/fs_vb_2.mp4" type="video/mp4">
             </video>
+            <span class="work-title">Further Study</span>
         </a>
         <a href="/dais/" class="work-btn">
             <video autoplay muted loop playsinline>
                 <source src="/vb/dais_vb1_1.mp4" type="video/mp4">
             </video>
+            <span class="work-title">Canadian Democracy @ Work</span>
         </a>
         <a href="/sandboxaq/" class="work-btn">
             <video autoplay muted loop playsinline>
                 <source src="/vb/saq_vb1_1.mp4" type="video/mp4">
             </video>
+            <span class="work-title">SandboxAQ</span>
         </a>
-        <a href="/further-study/" class="work-btn">
+        <a href="/crash-course/" class="work-btn">
             <video autoplay muted loop playsinline>
-                <source src="/vb/fs_vb_2.mp4" type="video/mp4">
+                <source src="/vb/cc_vb2_1.mp4" type="video/mp4">
             </video>
+            <span class="work-title">Crash Course</span>
         </a>
         <a href="/understanding-snps/" class="work-btn">
             <video autoplay muted loop playsinline>
                 <source src="/vb/hhmi_vb.mp4" type="video/mp4">
             </video>
-        </a>
-        <a href="/thought-cafe/" class="work-btn">
-            <video autoplay muted loop playsinline>
-                <source src="/vb/tc_vb_1.mp4" type="video/mp4">
-            </video>
-        </a>
-                <a href="/when-adam-changes/" class="work-btn">
-            <video autoplay muted loop playsinline>
-                <source src="/vb/adam_vb_2.mp4" type="video/mp4">
-            </video>
+            <span class="work-title">Understanding SNPs</span>
         </a>
         <a href="/motion/" class="work-btn">
             <video autoplay muted loop playsinline>
                 <source src="/vb/pu_vb_1.mp4" type="video/mp4">
             </video>
+            <span class="work-title">Motion</span>
         </a>
     </div>
 </main>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const toggle = document.querySelector(".menu-toggle");
-    const sidebar = document.querySelector(".sidebar");
-    if (toggle && sidebar) {
-        toggle.addEventListener("click", function () {
-            sidebar.classList.toggle("open");
-        });
-    }
-});
-</script>
 </body>
 </html>
-<script>
-document.querySelectorAll('.nav a').forEach(a => {
-    if (a.href === window.location.href) {
-        a.classList.add('active');
-    }
-});
-</script>

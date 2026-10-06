@@ -4,52 +4,20 @@
   <meta charset="UTF-8">
   <title>Personal — Noah Achod</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="/styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Neuton&display=swap" rel="stylesheet">
+    <script src="/sidebar.js" defer></script>
 </head>
 
 <body class="personal-page motion-page">
 
 <!-- ================= Sidebar ================= -->
 
-<aside class="sidebar">
-
-<div class="sidebar-header">
-    <button class="menu-toggle" aria-label="Toggle menu">☰</button>
-    <h1><a href="/">Noah Achod</a></h1>
-</div>
-
-  <nav class="nav">
-
-    <a href="/about/">about</a>
-
-    <div class="work">
-        <span class="work-label">Work</span>
-
-        <div class="work-items">
-            <a href="/crash-course/">Crash Course</a>
-            <a href="/dais/">Canadian Democracy @ Work</a>
-            <a href="/when-adam-changes/">When Adam Changes</a>
-            <a href="/sandboxaq/">SandboxAQ</a>
-            <a href="/further-study/">Further Study</a>
-            <a href="/understanding-snps/">Understanding SNPs</a>
-            <a href="/thought-cafe/">Thought Café</a>
-        </div>
-    </div>
-
-    <div class="play">
-        <span class="play-label">Play</span>
-
-        <div class="play-items">
-            <a href="/motion/">motion</a>
-            <a href="/images/">images</a>
-        </div>
-    </div>
-
-</nav>
-
-</aside>
+<div id="site-sidebar"></div>
 
 <!-- ================= Main ================= -->
 
@@ -67,7 +35,6 @@
       and filmmakers.
     </p>
 
-    <p>All animation and illustration by me.</p>
 
   </div>
 
@@ -312,38 +279,6 @@
 </div>
 
 
-<!-- ===== Project: Mirror ===== -->
-
-<div class="project-block"
-     data-videos="/perso_videos/Mirror_480.mp4">
-
-  <div class="video-crop">
-
-    <video
-      class="personal-video"
-      muted
-      playsinline
-      webkit-playsinline
-      preload="metadata"
-      poster="/thumbs/Mirror_Thumb.png">
-
-      <source src="/perso_videos/Mirror_480.mp4" type="video/mp4">
-
-    </video>
-
-    <div class="video-overlay">▶</div>
-
-  </div>
-
-  <p class="tile-title">Mirror</p>
-  
-  <p class="tile-caption">
-    Sound by Thugs and Euro Visa Visa
-  </p>
-
-</div>
-
-
 <!-- ================= Lightbox ================= -->
 
 <div class="video-lightbox" id="videoLightbox">
@@ -371,21 +306,6 @@ document.addEventListener("DOMContentLoaded", () => {
   ============================ */
 
   const isMobile = window.matchMedia("(max-width: 768px)").matches;
-
-
-  /* ============================
-     Sidebar Menu Toggle
-  ============================ */
-
-  const menuBtn = document.querySelector(".menu-toggle");
-  const sidebar = document.querySelector(".sidebar");
-
-  if (menuBtn && sidebar) {
-    menuBtn.addEventListener("click", (e) => {
-      e.stopPropagation(); // Prevent interference
-      sidebar.classList.toggle("open");
-    });
-  }
 
 
   /* ============================
@@ -522,10 +442,3 @@ document.addEventListener("DOMContentLoaded", () => {
 </main>
 </body>
 </html>
-<script>
-document.querySelectorAll('.nav a').forEach(a => {
-    if (a.href === window.location.href) {
-        a.classList.add('active');
-    }
-});
-</script>

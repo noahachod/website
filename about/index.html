@@ -4,96 +4,36 @@
     <meta charset="UTF-8">
     <title>About — Noah Achod</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Root-based CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Neuton&display=swap" rel="stylesheet">
+    <script src="/sidebar.js" defer></script>
 </head>
-
 <body class="about-page">
+    <div id="site-sidebar"></div>
 
-    <aside class="sidebar">
-<div class="sidebar-header">
-    <button class="menu-toggle" aria-label="Toggle menu">☰</button>
-    <h1><a href="/">Noah Achod</a></h1>
-</div>
-
-        <nav class="nav">
-            <!-- About page -->
-            <a href="/about/" class="active">about</a>
-
-            <div class="work">
-                <span class="work-label">Work</span>
-
-             <div class="work-items">
-            <a href="/crash-course/">Crash Course</a>
-            <a href="/dais/">Canadian Democracy @ Work</a>
-            <a href="/when-adam-changes/">When Adam Changes</a>
-            <a href="/sandboxaq/">SandboxAQ</a>
-            <a href="/further-study/">Further Study</a>
-            <a href="/understanding-snps/">Understanding SNPs</a>
-            <a href="/thought-cafe/">Thought Café</a>
+    <main>
+        <div class="main-content">
+            <div class="about-grid">
+                <div class="about-photo">
+                    <img src="/site-images/headshot_cropped.png" alt="Noah Achod">
+                </div>
+                <div class="text-block">
+                    <p>I'm a motion designer based in Montreal, Quebec. I studied film animation at Concordia University.</p>
+                    <p>At Thought Café, I had the opportunity to develop and animate <a href="/further-study/"><em>Further Study</em></a> with Hemmat Law, lead animation on multiple series of <a href="/crash-course/">Crash Course</a>, and provide motion design for projects with <a href="/dais/">Toronto Metropolitan University</a>, <a href="/sandboxaq/">SandboxAQ</a>, and The <a href="/understanding-snps/">Howard Hughes Medical Institute</a>.</p>
+                    <p>I've also worked as a compositor on <a href="https://en.wikipedia.org/wiki/When_Adam_Changes" target="_blank" rel="noopener noreferrer"><em>Adam Change Lentement</em></a>, and as VFX production assistant at Frontier VFX.</p>
+                    <p>In addition to motion design, I'm passionate about literature, hip-hop, cycling, and cinema.</p>
+                    <p>emails: achodnoah@gmail.com</p>
+                </div>
+            </div>
         </div>
-    </div>
+    </main>
 
-    <div class="play">
-        <span class="play-label">Play</span>
-
-        <div class="play-items">
-            <a href="/motion/">motion</a>
-            <a href="/images/">images</a>
-        </div>
-    </div>
-
-</nav>
-    </aside>
-
-<main>
-    <div class="main-content">
-        <div class="about-grid">
-    <div class="about-photo">
-        <img src="/site-images/headshot_cropped.png" alt="Noah Achod">
-    </div>
-    <div class="text-block">
-        <p>
-            Noah Achod is a motion designer based in Montreal, Quebec. He studied Film Animation at Concordia University.
-        </p>
-            
-        <p>
-            He has worked with Crash Course, SandboxAQ, Hemmat Law,
-            Toronto Metropolitan University, Parce Que Films,
-            Thought Café, Howard Hughes Medical Institute, and more.
-        </p>
-    </div>
-</div>
-<p class="contact-text">
-    achodnoah@gmail.com | <a href="https://instagram.com/nonostyleee/" target="_blank" rel="noopener noreferrer">@nonostyleee
-    </a>
-</p>
-        </div>
-    </div>
-</main>
-
-
-    <!-- Lightbox -->
     <div class="lightbox" id="lightbox">
         <img id="lightbox-img" alt="">
     </div>
-
-    <!-- Root-based JS -->
     <script src="/lightbox.js"></script>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const toggle = document.querySelector(".menu-toggle");
-    const sidebar = document.querySelector(".sidebar");
-
-    if (toggle && sidebar) {
-        toggle.addEventListener("click", function () {
-            sidebar.classList.toggle("open");
-        });
-    }
-});
-</script>
 </body>
 </html>
