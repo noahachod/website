@@ -837,6 +837,15 @@ main p {
     .crash-course-page .crash-course-grid--three {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+
+    .crash-course-page .crash-course-character-grid .video-wrapper video {
+        position: absolute;
+        inset: 0;
+        width: 100% !important;
+        height: 100% !important;
+        aspect-ratio: auto;
+        object-fit: cover;
+    }
 }
 /* ==============================
    DAIS video grid
