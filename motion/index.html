@@ -13,7 +13,7 @@
     <script src="/sidebar.js" defer></script>
 </head>
 
-<body class="personal-page motion-page">
+<body class="work-page personal-page motion-page">
 
 <!-- ================= Sidebar ================= -->
 
@@ -47,7 +47,7 @@
 <!-- ===== Project: My Fridge ===== -->
 
 <div class="project-block"
-     data-videos="/perso_videos/MF_480_cropped.mp4">
+     data-videos="/vids/MF_480_cropped.mp4">
 
   <div class="video-crop">
 
@@ -59,7 +59,7 @@
       preload="metadata"
       poster="/thumbs/MF_thumb1.png">
 
-      <source src="/perso_videos/MF_480_cropped.mp4" type="video/mp4">
+      <source src="/vids/MF_480_cropped.mp4" type="video/mp4">
 
     </video>
 
@@ -77,7 +77,7 @@
 <!-- ===== Project: Scandinavia ===== -->
 
 <div class="project-block"
-     data-videos="/videos/Scandi_Widescreen_480.mp4">
+     data-videos="/vids/Scandi_Widescreen_480.mp4">
 
   <div class="video-crop">
 
@@ -89,7 +89,7 @@
       preload="metadata"
       poster="/thumbs/Scandi_Thumb.png">
 
-      <source src="/videos/Scandi_Widescreen_480.mp4" type="video/mp4">
+      <source src="/vids/Scandi_Widescreen_480.mp4" type="video/mp4">
 
     </video>
 
@@ -104,7 +104,7 @@
 <!-- ===== Project: Long Distance ===== -->
 
 <div class="project-block"
-     data-videos="/perso_videos/LD_480.mp4">
+     data-videos="/vids/LD_480.mp4">
 
   <div class="video-crop">
 
@@ -116,7 +116,7 @@
       preload="metadata"
       poster="/thumbs/LD_Thumb.png">
 
-      <source src="/perso_videos/LD_480.mp4" type="video/mp4">
+      <source src="/vids/LD_480.mp4" type="video/mp4">
 
     </video>
 
@@ -133,7 +133,7 @@
 <!-- ===== Project: Push-ups ===== -->
 
 <div class="project-block"
-     data-videos="/perso_videos/PU_480.mp4">
+     data-videos="/vids/PU_480.mp4">
 
   <div class="video-crop">
 
@@ -145,7 +145,7 @@
       preload="metadata"
       poster="/thumbs/PU_Thumb.png">
 
-      <source src="/perso_videos/PU_480.mp4" type="video/mp4">
+      <source src="/vids/PU_480.mp4" type="video/mp4">
 
     </video>
 
@@ -161,7 +161,7 @@
 <!-- ===== Project: Pain Rat ===== -->
 
 <div class="project-block"
-     data-videos="/pr_vid/PR_480.mp4">
+     data-videos="/vids/PR_480.mp4">
 
   <div class="video-crop">
 
@@ -173,7 +173,7 @@
       preload="metadata"
       poster="/thumbs/PR_Thumb.png">
 
-      <source src="/pr_vid/PR_480.mp4" type="video/mp4">
+      <source src="/vids/PR_480.mp4" type="video/mp4">
 
     </video>
 
@@ -193,7 +193,7 @@
 <!-- ===== Project: Tattoo (Stack) ===== -->
 
 <div class="project-block project-tattoo"
-     data-videos="/perso_videos/Tattoo_01_480_1.mp4,/perso_videos/Tattoo_02_480_1.mp4">
+     data-videos="/vids/Tattoo_01_480_1.mp4,/vids/Tattoo_02_480_1.mp4">
 
   <div class="tattoo-stack">
 
@@ -208,7 +208,7 @@
         preload="metadata"
         poster="/thumbs/Tattoo_01_Thumb.png">
 
-        <source src="/perso_videos/Tattoo_01_480_1.mp4" type="video/mp4">
+        <source src="/vids/Tattoo_01_480_1.mp4" type="video/mp4">
 
       </video>
 
@@ -227,7 +227,7 @@
         preload="metadata"
         poster="/thumbs/Tattoo_02_Thumb.png">
 
-        <source src="/perso_videos/Tattoo_02_480_1.mp4" type="video/mp4">
+        <source src="/vids/Tattoo_02_480_1.mp4" type="video/mp4">
 
       </video>
 
@@ -250,7 +250,7 @@
 <!-- ===== Project: Apple ===== -->
 
 <div class="project-block"
-     data-videos="/perso_videos/Apple_Sound_480.mp4">
+     data-videos="/vids/Apple_Sound_480.mp4">
 
   <div class="video-crop">
 
@@ -262,7 +262,7 @@
       preload="metadata"
       poster="/thumbs/Apple_Thumb.png">
 
-      <source src="/perso_videos/Apple_Sound_480.mp4" type="video/mp4">
+      <source src="/vids/Apple_Sound_480.mp4" type="video/mp4">
 
     </video>
 
@@ -276,6 +276,9 @@
     Sound by Johnny Sales
   </p>
 
+</div>
+
+<!-- End the project grid before the lightbox and page navigation. -->
 </div>
 
 
@@ -438,6 +441,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+<nav class="project-nav" aria-label="Project navigation">
+  <a class="project-nav-link project-nav-home" href="/" aria-label="Back home">
+    <span class="project-nav-arrow" aria-hidden="true">←</span>
+    <span>Back home</span>
+  </a>
+  <a class="project-nav-link project-nav-next" href="/further-study/" rel="next" aria-label="Next project: Further Study">
+    <span class="project-nav-label">Next project</span>
+    <span class="project-nav-title">Further Study</span>
+    <span class="project-nav-arrow" aria-hidden="true">→</span>
+  </a>
+</nav>
 
 </main>
 </body>
