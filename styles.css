@@ -1922,6 +1922,12 @@ img,
     margin: 32px auto;
 }
 
+.sos-violence-conjugale-page main {
+    width: 100%;
+    max-width: 1280px;
+    margin-inline: auto;
+}
+
 .sos-credits {
     width: 100%;
     max-width: 1458px;
