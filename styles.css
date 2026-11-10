@@ -1922,6 +1922,20 @@ img,
     margin: 32px auto;
 }
 
+.sos-credits {
+    width: 100%;
+    max-width: 1458px;
+    margin: 64px auto 32px;
+    color: #888;
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.sos-credits p {
+    margin: 0;
+}
+
 .sos-violence-conjugale-page main > h2 {
     margin-bottom: 24px;
 }
