@@ -1294,9 +1294,8 @@ main p {
    Index: Work button grid
 ============================== */
 .work-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 16px;
     max-width: 2000px;
     width: 100%;
@@ -1347,6 +1346,14 @@ main p {
     transform: translateY(6px);
     transition: opacity 0.25s ease, transform 0.25s ease;
     pointer-events: none;
+}
+
+.work-btn--title-visible .work-title {
+    opacity: 1;
+    transform: none;
+    background: #292929;
+    font-size: clamp(20px, 2.5vw, 40px);
+    text-transform: none;
 }
 
 .work-btn:hover video,
@@ -1742,14 +1749,16 @@ img,
 
     /* Work button grid */
     .work-grid {
+        grid-template-columns: 1fr;
         gap: 12px;
         padding: 0 6px;
     }
 
     .work-btn {
-    flex: 0 0 100%;
-    max-width: none;
-}
+        grid-column: 1 / -1;
+        width: 100%;
+        max-width: none;
+    }
 
     /* Media sizing */
     video,
@@ -1776,6 +1785,12 @@ img,
         aspect-ratio: 16 / 9;
         display: block;
         object-fit: contain;
+    }
+
+    .sos-feature-gif img {
+        width: 300px !important;
+        height: auto !important;
+        max-width: 100% !important;
     }
 
     /* Shorts aspect ratio */
@@ -1900,6 +1915,133 @@ img,
         height: calc(100% + 5px) !important;
     }
 }
+.sos-feature-video,
+.sos-feature-gif {
+    width: 100%;
+    max-width: 2000px;
+    margin: 32px auto;
+}
+
+.sos-violence-conjugale-page main > h2 {
+    margin-bottom: 24px;
+}
+
+.sos-violence-conjugale-page .sos-copy {
+    width: 100%;
+    max-width: 2000px;
+    margin: 0 auto 32px;
+}
+
+.sos-violence-conjugale-page .sos-copy p {
+    text-align: left;
+    margin-bottom: 0;
+}
+
+.sos-violence-conjugale-page .sos-copy p + p {
+    margin-top: 2em;
+}
+
+.sos-violence-conjugale-page .sos-copy--followup {
+    margin-bottom: 160px;
+}
+
+.sos-violence-conjugale-page .sos-copy a,
+.sos-violence-conjugale-page .sos-copy a:hover {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.sos-violence-conjugale-page .sos-gif-title {
+    width: 100%;
+    max-width: 1458px;
+    margin: 0 0 48px;
+    text-align: left;
+    font-family: "Instrument Sans", Helvetica, Arial, sans-serif;
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: #888;
+}
+
+.sos-violence-conjugale-page .sos-gif-copy {
+    width: 100%;
+    max-width: 2000px;
+    margin: 0 0 52px;
+}
+
+.sos-violence-conjugale-page .sos-gif-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    max-width: 1458px;
+    margin: 0 auto 52px;
+}
+
+@media (min-width: 769px) {
+    .sos-violence-conjugale-page .sos-gif-layout {
+        display: grid;
+        grid-template-columns: 300px minmax(0, 584px);
+        align-items: start;
+        gap: 32px;
+    }
+
+}
+
+.sos-violence-conjugale-page .sos-gif-copy p {
+    width: 100%;
+    max-width: none;
+    margin-bottom: 0;
+    text-align: left;
+}
+
+.sos-violence-conjugale-page .sos-gif-layout .sos-feature-gif {
+    width: auto;
+    max-width: none;
+    margin: 0;
+}
+
+.sos-violence-conjugale-page .sos-gif-layout .sos-gif-copy {
+    width: auto;
+    max-width: none;
+    margin: 0;
+}
+
+.sos-violence-conjugale-page .sos-gif-copy p + p {
+    margin-top: 2em;
+}
+
+@media (min-width: 769px) {
+    .sos-feature-video,
+    .sos-feature-gif {
+        align-self: center;
+    }
+
+    .sos-feature-gif img {
+        margin-left: 0;
+    }
+}
+
+.sos-feature-video video,
+.sos-feature-gif img {
+    display: block;
+    height: auto;
+}
+
+.sos-feature-video video {
+    width: 100%;
+    max-width: 1500px;
+    margin: 0;
+}
+
+.sos-feature-gif img {
+    width: 300px;
+    max-width: 100%;
+    margin: 0;
+}
+
 .understanding-snps-page .main-content {
     max-width: 2000px;
     margin-top: 0;
